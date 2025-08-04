@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KAI Restaurant - Премиальная японская кухня в Москве</title>
+    <meta
+      name="description"
+      content="KAI - новая концепция знакового места. Премиальный японский ресторан с авторской кухней и изысканной атмосферой."
+    />
+
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#B3916A",
+              secondary: "#D4C5B4",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :where([class^="ri-"])::before {
+          content: "\f3c2";
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+      }
+
+      .parallax-bg {
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+
+      .fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.8s ease;
+      }
+
+      .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+      .hover-scale {
+          transition: transform 0.3s ease;
+      }
+
+      .hover-scale:hover {
+          transform: scale(1.05);
+      }
+
+      .text-shadow {
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      }
+
+      .overlay {
+          background: linear-gradient(135deg, rgba(21, 21, 21, 0.7) 0%, rgba(21, 21, 21, 0.4) 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-inter">
+    <!-- Header -->
+    <header
+      class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-sm transition-all duration-300"
+    >
+      <nav class="px-6 py-4">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+          <div class="text-2xl font-bold text-primary tracking-wider">KAI</div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#about"
+              class="text-white hover:text-primary transition-colors duration-300"
+              >О ресторане</a
+            >
+            <a
+              href="#cuisine"
+              class="text-white hover:text-primary transition-colors duration-300"
+              >Кухня</a
+            >
+            <a
+              href="#interior"
+              class="text-white hover:text-primary transition-colors duration-300"
+              >Интерьер</a
+            >
+            <a
+              href="#menu"
+              class="text-white hover:text-primary transition-colors duration-300"
+              >Меню</a
+            >
+            <a
+              href="#contact"
+              class="text-white hover:text-primary transition-colors duration-300"
+              >Контакты</a
+            >
+          </div>
+          <button
+            class="bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap"
+          >
+            Забронировать стол
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen flex items-center justify-center parallax-bg"
+      style="background-image: url('https://readdy.ai/api/search-image?query=elegant%20japanese%20restaurant%20interior%20with%20dramatic%20lighting%2C%20warm%20ambient%20atmosphere%2C%20modern%20minimalist%20design%2C%20sake%20glasses%20and%20chopsticks%20on%20dark%20wooden%20table%2C%20sophisticated%20dining%20setting%2C%20moody%20photography%2C%20high-end%20restaurant%20ambiance%2C%20soft%20golden%20lighting%2C%20clean%20composition&width=1920&height=1080&seq=hero1&orientation=landscape')"
+    >
+      <div class="overlay absolute inset-0"></div>
+      <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+        <h1 class="text-6xl md:text-7xl font-light mb-6 text-shadow fade-in">
+          Новая концепция<br />знакового места
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 font-light opacity-90 fade-in">
+          Где гастрономия встречается с искусством
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+          <button
+            class="bg-primary text-black px-8 py-4 !rounded-button font-medium text-lg hover:bg-primary/90 transition-all duration-300 hover-scale whitespace-nowrap"
+          >
+            Забронировать стол
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-4 !rounded-button font-medium text-lg hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap"
+          >
+            Смотреть меню
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="fade-in">
+            <h2 class="text-4xl md:text-5xl font-light mb-8 text-gray-900">
+              О ресторане
+            </h2>
+            <p class="text-lg leading-relaxed text-gray-700 mb-6">
+              Наши вечера — это сочетание вкуса, пространства и ритма. Мы верим,
+              что гастрономия начинается с атмосферы — в тишине, в деталях, в
+              темпе, который задаёт свет.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700">
+              KAI — это не просто ресторан, это философия, воплощённая в каждом
+              блюде, в каждом жесте, в каждом моменте вашего пребывания у нас.
+            </p>
+          </div>
+          <div class="fade-in">
+            <img
+              src="https://readdy.ai/api/search-image?query=elegant%20japanese%20restaurant%20interior%20with%20soft%20lighting%2C%20minimalist%20design%2C%20wooden%20elements%2C%20stone%20textures%2C%20warm%20atmosphere%2C%20sophisticated%20dining%20room%2C%20modern%20japanese%20aesthetics%2C%20clean%20lines%2C%20natural%20materials%2C%20ambient%20lighting&width=600&height=400&seq=about1&orientation=landscape"
+              alt="Интерьер ресторана KAI"
+              class="w-full h-96 object-cover !rounded-lg hover-scale"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cuisine Section -->
+    <section id="cuisine" class="py-20 bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="fade-in">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20chef%20hands%20preparing%20japanese%20cuisine%2C%20artistic%20food%20plating%2C%20sashimi%20and%20sushi%20preparation%2C%20elegant%20presentation%2C%20dark%20background%2C%20dramatic%20lighting%2C%20culinary%20artistry%2C%20fresh%20ingredients%2C%20precision%20knife%20work%2C%20gourmet%20japanese%20food&width=600&height=400&seq=cuisine1&orientation=landscape"
+              alt="Шеф-повар готовит блюда"
+              class="w-full h-96 object-cover !rounded-lg hover-scale"
+            />
+          </div>
+          <div class="fade-in">
+            <h2 class="text-4xl md:text-5xl font-light mb-8">Кухня и шеф</h2>
+            <p class="text-lg leading-relaxed text-gray-300 mb-6">
+              Меню — это сочетание сезонных ингредиентов, японских техник и
+              авторского подхода. У нас нет шаблонов, но есть вкус, в который вы
+              вернётесь.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-300">
+              Каждое блюдо — это история, рассказанная через вкус, текстуру и
+              аромат. Наш шеф-повар создаёт не просто еду, а эмоциональные
+              переживания.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interior Section -->
+    <section id="interior" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl md:text-5xl font-light mb-8 text-gray-900">
+            Интерьер
+          </h2>
+          <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+            Пространство, где каждая деталь создана для того, чтобы вы
+            почувствовали гармонию и умиротворение
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="fade-in">
+            <img
+              src="https://readdy.ai/api/search-image?query=luxury%20japanese%20restaurant%20dining%20room%2C%20dark%20wood%20furniture%2C%20soft%20ambient%20lighting%2C%20minimalist%20decor%2C%20stone%20textures%2C%20elegant%20table%20setting%2C%20modern%20japanese%20interior%20design%2C%20sophisticated%20atmosphere%2C%20warm%20color%20palette&width=400&height=500&seq=interior1&orientation=portrait"
+              alt="Основной зал ресторана"
+              class="w-full h-80 object-cover !rounded-lg hover-scale"
+            />
+          </div>
+          <div class="fade-in">
+            <img
+              src="https://readdy.ai/api/search-image?query=japanese%20restaurant%20private%20dining%20room%2C%20intimate%20setting%2C%20wooden%20panels%2C%20soft%20lighting%2C%20traditional%20elements%2C%20modern%20luxury%2C%20cozy%20atmosphere%2C%20elegant%20furniture%2C%20natural%20materials%2C%20sophisticated%20design&width=400&height=500&seq=interior2&orientation=portrait"
+              alt="Приватная зона"
+              class="w-full h-80 object-cover !rounded-lg hover-scale"
+            />
+          </div>
+          <div class="fade-in">
+            <img
+              src="https://readdy.ai/api/search-image?query=japanese%20restaurant%20bar%20area%2C%20sake%20bottles%20display%2C%20dark%20wooden%20counter%2C%20atmospheric%20lighting%2C%20modern%20design%2C%20elegant%20bar%20stools%2C%20sophisticated%20ambiance%2C%20premium%20interior%2C%20warm%20lighting&width=400&height=500&seq=interior3&orientation=portrait"
+              alt="Барная зона"
+              class="w-full h-80 object-cover !rounded-lg hover-scale"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl md:text-5xl font-light mb-8 text-gray-900">
+            Меню
+          </h2>
+          <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+            Авторские блюда, созданные из лучших сезонных ингредиентов
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div
+            class="bg-white !rounded-lg overflow-hidden shadow-lg hover-scale fade-in"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=premium%20sashimi%20platter%2C%20fresh%20raw%20fish%2C%20elegant%20presentation%2C%20dark%20wooden%20board%2C%20artistic%20plating%2C%20high-end%20japanese%20cuisine%2C%20restaurant%20quality%2C%20sophisticated%20food%20photography%2C%20clean%20background&width=400&height=300&seq=menu1&orientation=landscape"
+              alt="Сашими ассорти"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Сашими ассорти</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Отборная рыба дневного улова, подается с васаби и маринованным
+                имбирем
+              </p>
+              <p class="text-primary font-medium">3 200 ₽</p>
+            </div>
+          </div>
+          <div
+            class="bg-white !rounded-lg overflow-hidden shadow-lg hover-scale fade-in"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=wagyu%20beef%20teppanyaki%2C%20premium%20marbled%20meat%2C%20grilled%20perfection%2C%20elegant%20plating%2C%20dark%20background%2C%20restaurant%20presentation%2C%20high-end%20japanese%20cuisine%2C%20artistic%20food%20photography&width=400&height=300&seq=menu2&orientation=landscape"
+              alt="Вагю на гриле"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Вагю на гриле</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Мраморная говядина А5, приготовленная на углях с соусом понзу
+              </p>
+              <p class="text-primary font-medium">5 800 ₽</p>
+            </div>
+          </div>
+          <div
+            class="bg-white !rounded-lg overflow-hidden shadow-lg hover-scale fade-in"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=premium%20omakase%20sushi%20set%2C%20chef%20selection%2C%20elegant%20wooden%20board%2C%20artistic%20presentation%2C%20fresh%20fish%2C%20high-end%20japanese%20cuisine%2C%20restaurant%20quality%2C%20sophisticated%20plating&width=400&height=300&seq=menu3&orientation=landscape"
+              alt="Омакасе сет"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Омакасе сет</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Авторский набор от шеф-повара из 12 позиций
+              </p>
+              <p class="text-primary font-medium">7 500 ₽</p>
+            </div>
+          </div>
+          <div
+            class="bg-white !rounded-lg overflow-hidden shadow-lg hover-scale fade-in"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=tempura%20vegetables%20and%20prawns%2C%20crispy%20golden%20batter%2C%20elegant%20presentation%2C%20traditional%20japanese%20dish%2C%20restaurant%20quality%2C%20artistic%20plating%2C%20clean%20background&width=400&height=300&seq=menu4&orientation=landscape"
+              alt="Темпура микс"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Темпура микс</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Креветки и сезонные овощи в хрустящем кляре
+              </p>
+              <p class="text-primary font-medium">2 400 ₽</p>
+            </div>
+          </div>
+          <div
+            class="bg-white !rounded-lg overflow-hidden shadow-lg hover-scale fade-in"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=premium%20sake%20tasting%20set%2C%20traditional%20ceramic%20cups%2C%20elegant%20presentation%2C%20japanese%20rice%20wine%2C%20sophisticated%20serving%2C%20restaurant%20quality%2C%20clean%20background&width=400&height=300&seq=menu5&orientation=landscape"
+              alt="Дегустация саке"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Дегустация саке</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Три вида премиального саке с закусками
+              </p>
+              <p class="text-primary font-medium">3 800 ₽</p>
+            </div>
+          </div>
+          <div
+            class="bg-white !rounded-lg overflow-hidden shadow-lg hover-scale fade-in"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=japanese%20dessert%20mochi%20ice%20cream%2C%20elegant%20plating%2C%20artistic%20presentation%2C%20colorful%20traditional%20sweets%2C%20restaurant%20quality%2C%20sophisticated%20food%20photography%2C%20clean%20background&width=400&height=300&seq=menu6&orientation=landscape"
+              alt="Моти мороженое"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Моти мороженое</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Традиционный десерт с мороженым матча и красной фасолью
+              </p>
+              <p class="text-primary font-medium">980 ₽</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center fade-in">
+          <button
+            class="bg-primary text-black px-8 py-4 !rounded-button font-medium text-lg hover:bg-primary/90 transition-all duration-300 hover-scale whitespace-nowrap"
+          >
+            Смотреть полное меню
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl md:text-5xl font-light mb-8">
+            Контакты и бронирование
+          </h2>
+          <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+            Мы будем рады видеть вас в нашем ресторане
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div class="fade-in">
+            <div class="mb-8">
+              <h3 class="text-2xl font-medium mb-6">Информация</h3>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <div class="w-6 h-6 flex items-center justify-center mr-4">
+                    <i class="ri-map-pin-line text-primary ri-lg"></i>
+                  </div>
+                  <span>Москва, ул. Тверская, 15, стр. 1</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-6 h-6 flex items-center justify-center mr-4">
+                    <i class="ri-phone-line text-primary ri-lg"></i>
+                  </div>
+                  <a
+                    href="tel:+74951234567"
+                    class="hover:text-primary transition-colors"
+                    >+7 (495) 123-45-67</a
+                  >
+                </div>
+                <div class="flex items-center">
+                  <div class="w-6 h-6 flex items-center justify-center mr-4">
+                    <i class="ri-time-line text-primary ri-lg"></i>
+                  </div>
+                  <span>Ежедневно с 18:00 до 02:00</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-6 h-6 flex items-center justify-center mr-4">
+                    <i class="ri-mail-line text-primary ri-lg"></i>
+                  </div>
+                  <a
+                    href="mailto:info@kai-restaurant.ru"
+                    class="hover:text-primary transition-colors"
+                    >info@kai-restaurant.ru</a
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              class="bg-primary text-black px-8 py-4 !rounded-button font-medium text-lg hover:bg-primary/90 transition-all duration-300 hover-scale whitespace-nowrap"
+            >
+              Забронировать стол
+            </button>
+          </div>
+          <div class="fade-in">
+            <div
+              class="h-96 !rounded-lg overflow-hidden"
+              style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <div class="fade-in">
+            <div class="text-3xl font-bold text-primary mb-4 tracking-wider">
+              KAI
+            </div>
+            <p class="text-secondary text-base leading-relaxed">
+              Новая концепция знакового места, где гастрономия встречается с
+              искусством
+            </p>
+          </div>
+          <div class="fade-in">
+            <h3 class="text-lg font-medium mb-6">Контакты</h3>
+            <div class="space-y-3">
+              <a
+                href="tel:+74951234567"
+                class="block hover:text-primary transition-colors"
+              >
+                +7 (495) 123-45-67
+              </a>
+              <p class="text-gray-400">Москва, ул. Тверская, 15, стр. 1</p>
+              <p class="text-gray-400">Ежедневно с 18:00 до 02:00</p>
+            </div>
+          </div>
+          <div class="fade-in">
+            <h3 class="text-lg font-medium mb-6">Социальные сети</h3>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-primary hover:text-black transition-all duration-300"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-primary hover:text-black transition-all duration-300"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-primary hover:text-black transition-all duration-300"
+              >
+                <i class="ri-whatsapp-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-primary hover:text-black transition-all duration-300"
+              >
+                <i class="ri-telegram-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-primary/30 pt-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+          >
+            <p class="text-gray-400 text-sm">
+              © 2024 KAI Restaurant. All rights reserved
+            </p>
+            <div class="flex space-x-6 text-sm">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors"
+                >Политика конфиденциальности</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors"
+                >Пользовательское соглашение</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script id="scroll-animations">
+      document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+
+    <script id="smooth-scroll">
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+      });
+    </script>
+
+    <script id="header-scroll">
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector("header");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", function () {
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY > 100) {
+            header.classList.add("bg-black/95");
+          } else {
+            header.classList.remove("bg-black/95");
+          }
+
+          lastScrollY = currentScrollY;
+        });
+      });
+    </script>
+  </body>
+</html>
