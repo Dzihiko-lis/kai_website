@@ -143,37 +143,33 @@
             <button class="hidden md:block bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap">
               Забронировать стол
             </button>
-            <button id="mobile-menu-button" class="md:hidden text-white p-2">
-            <i class="ri-menu-line text-2xl"></i>
+            <button id="burger-menu-button" class="md:hidden w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors">
+              <i class="ri-menu-line text-2xl"></i>
             </button>
           </div>
         </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-black/95 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+<div class="p-6">
+<button id="close-menu-button" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors">
+<i class="ri-close-line text-2xl"></i>
+</button>
+<div class="mt-12 flex flex-col space-y-6">
+<a href="#about" class="text-white hover:text-primary transition-colors duration-300">О ресторане</a>
+<a href="#cuisine" class="text-white hover:text-primary transition-colors duration-300">Кухня</a>
+<a href="#interior" class="text-white hover:text-primary transition-colors duration-300">Интерьер</a>
+<a href="#menu" class="text-white hover:text-primary transition-colors duration-300">Меню</a>
+<a href="#contact" class="text-white hover:text-primary transition-colors duration-300">Контакты</a>
+<button class="bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap mt-4">
+Забронировать стол
+</button>
+</div>
+</div>
+</div>
+
+
       </nav>
-    <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-black/95 z-50 p-6">
-        <div class="flex justify-end mb-8">
-          <button id="close-menu-button" class="text-white p-2">
-          <i class="ri-close-line text-2xl"></i>
-          </button>
-        </div>
-        <div class="flex flex-col space-y-6">
-            <a href="#about" class="text-white hover:text-primary transition-colors duration-300"
-            >О ресторане</a>
-            <a href="#cuisine" class="text-white hover:text-primary transition-colors duration-300"
-            >О кухне</a>
-            <a href="#menu" class="text-white hover:text-primary transition-colors duration-300"
-            >Меню</a>
-            <a href="#delivery" class="text-white hover:text-primary transition-colors duration-300"
-            >Доставка</a>
-            <a href="#contact" class="text-white hover:text-primary transition-colors duration-300"
-            >Контакты</a>
-            <a href="/gallery.html" class="text-white hover:text-primary transition-colors duration-300"
-            >Галерея</a>
-            <button class="bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap">
-            Забронировать стол
-            </button>
-          </div>
-        </div>
+    
     </header>
     <!-- Hero Section -->
     <section
@@ -554,26 +550,7 @@
 
 
 
-    <script id="mobile-menu">
-      document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMenuButton = document.getElementById('close-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
-
-        function toggleMenu() {
-          mobileMenu.classList.toggle('active');
-          document.body.classList.toggle('overflow-hidden');
-        }
-
-      mobileMenuButton.addEventListener('click', toggleMenu);
-      closeMenuButton.addEventListener('click', toggleMenu);
-
-       Array.from(mobileMenuLinks).forEach(link => {
-       link.addEventListener('click', toggleMenu);
-       });
-      });
-    </script>
+    
 
     <script id="scroll-animations">
       document.addEventListener("DOMContentLoaded", function () {
@@ -614,21 +591,37 @@
     </script>
 
     <script id="header-scroll">
-      document.addEventListener("DOMContentLoaded", function () {
-        const header = document.querySelector("header");
-        let lastScrollY = window.scrollY;
-        window.addEventListener("scroll", function () {
-          const currentScrollY = window.scrollY;
-
-          if (currentScrollY > 100) {
-            header.classList.add("bg-black/95");
-          } else {
-            header.classList.remove("bg-black/95");
-          }
-
-          lastScrollY = currentScrollY;
-        });
-      });
-    </script>
+document.addEventListener('DOMContentLoaded', function() {
+const header = document.querySelector('header');
+const burgerButton = document.getElementById('burger-menu-button');
+const closeButton = document.getElementById('close-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', function() {
+const currentScrollY = window.scrollY;
+if (currentScrollY > 100) {
+header.classList.add('bg-black/95');
+} else {
+header.classList.remove('bg-black/95');
+}
+lastScrollY = currentScrollY;
+});
+burgerButton.addEventListener('click', function() {
+mobileMenu.classList.remove('translate-x-full');
+document.body.style.overflow = 'hidden';
+});
+closeButton.addEventListener('click', function() {
+mobileMenu.classList.add('translate-x-full');
+document.body.style.overflow = '';
+});
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('translate-x-full');
+document.body.style.overflow = '';
+});
+});
+});
+</script>
   </body>
 </html>
