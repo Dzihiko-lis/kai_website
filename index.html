@@ -148,32 +148,34 @@
             </button>
           </div>
         </div>
-        <!-- Мобильное меню полноэкранное -->
-<div id="mobile-menu"
-     class="fixed inset-0 bg-black/90 flex justify-end transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-  <!-- Боковая панель меню -->
-  <div class="w-64 h-full bg-black p-6 relative">
-    <button id="close-menu-button"
-            class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors">
-      <i class="ri-close-line text-2xl"></i>
-    </button>
-    <!-- Контейнер подложки -->
-<div class="bg-black w-72 p-6 mt-12 rounded-r-xl shadow-lg">
-  <!-- Контент навигации -->
-  <div class="flex flex-col space-y-6">
-    <a href="#about" class="text-white hover:text-primary transition-colors duration-300">О ресторане</a>
-    <a href="#cuisine" class="text-white hover:text-primary transition-colors duration-300">Кухня</a>
-    <a href="#interior" class="text-white hover:text-primary transition-colors duration-300">Интерьер</a>
-    <a href="#menu" class="text-white hover:text-primary transition-colors duration-300">Меню</a>
-    <a href="#contact" class="text-white hover:text-primary transition-colors duration-300">Контакты</a>
-    <button
-      class="self-start bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap mt-4">
-      Забронировать стол
-    </button>
-  </div>
-</div>
-  </div>
-</div>
+         <!-- 🌒 Полупрозрачный фон -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+
+    <!-- 📱 Мобильное меню -->
+    <div id="mobile-menu"
+      class="fixed inset-0 bg-black/90 flex justify-end transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+      <!-- Боковая панель -->
+      <div class="w-64 h-full bg-black p-6 relative">
+        <button id="close-menu-button"
+          class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors">
+          <i class="ri-close-line text-2xl"></i>
+        </button>
+        <!-- Контейнер меню -->
+        <div class="bg-black w-72 p-6 mt-12 rounded-r-xl shadow-lg">
+          <div class="flex flex-col space-y-6">
+            <a href="#about" class="text-white hover:text-primary transition-colors duration-300">О ресторане</a>
+            <a href="#cuisine" class="text-white hover:text-primary transition-colors duration-300">Кухня</a>
+            <a href="#interior" class="text-white hover:text-primary transition-colors duration-300">Интерьер</a>
+            <a href="#menu" class="text-white hover:text-primary transition-colors duration-300">Меню</a>
+            <a href="#contact" class="text-white hover:text-primary transition-colors duration-300">Контакты</a>
+            <button
+              class="self-start bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap mt-4">
+              Забронировать стол
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
       </nav>
@@ -598,37 +600,47 @@
       });
     </script>
 
-    <script id="header-scroll">
-document.addEventListener('DOMContentLoaded', function() {
-const header = document.querySelector('header');
-const burgerButton = document.getElementById('burger-menu-button');
-const closeButton = document.getElementById('close-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-let lastScrollY = window.scrollY;
-window.addEventListener('scroll', function() {
-const currentScrollY = window.scrollY;
-if (currentScrollY > 100) {
-header.classList.add('bg-black/95');
-} else {
-header.classList.remove('bg-black/95');
-}
-lastScrollY = currentScrollY;
-});
-burgerButton.addEventListener('click', function() {
-mobileMenu.classList.remove('translate-x-full');
-document.body.style.overflow = 'hidden';
-});
-closeButton.addEventListener('click', function() {
-mobileMenu.classList.add('translate-x-full');
-document.body.style.overflow = '';
-});
-const mobileLinks = mobileMenu.querySelectorAll('a');
-mobileLinks.forEach(link => {
-link.addEventListener('click', function() {
-mobileMenu.classList.add('translate-x-full');
-document.body.style.overflow = '';
-});
-});
+    <!-- Скрипт управления меню и оверлеем -->
+<script id="header-scroll">
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.querySelector('header');
+  const burgerButton = document.getElementById('burger-menu-button');
+  const closeButton = document.getElementById('close-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('overlay');
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+
+  // Прокрутка: прозрачность хедера
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 100) {
+      header.classList.add('bg-black/95');
+    } else {
+      header.classList.remove('bg-black/95');
+    }
+  });
+
+  // Открыть меню
+  burgerButton.addEventListener('click', function () {
+    mobileMenu.classList.remove('translate-x-full');
+    overlay.classList.remove('opacity-0', 'pointer-events-none');
+    overlay.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+  });
+
+  // Закрыть меню
+  function closeMenu() {
+    mobileMenu.classList.add('translate-x-full');
+    overlay.classList.add('opacity-0', 'pointer-events-none');
+    overlay.classList.remove('opacity-100');
+    document.body.style.overflow = '';
+  }
+
+  closeButton.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 });
 </script>
   </body>
