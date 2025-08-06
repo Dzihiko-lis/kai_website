@@ -116,12 +116,7 @@
             <a
               href="#cuisine"
               class="text-white hover:text-primary transition-colors duration-300"
-              >Кухня</a
-            >
-            <a
-              href="#interior"
-              class="text-white hover:text-primary transition-colors duration-300"
-              >Интерьер</a
+              >О кухне</a
             >
             <a
               href="#menu"
@@ -138,13 +133,47 @@
               class="text-white hover:text-primary transition-colors duration-300"
               >Контакты</a
             >
+            <a
+              href="#/gallery.html"
+              class="text-white hover:text-primary transition-colors duration-300"
+              >Галерея</a
+            >
           </div>
-          <button
-              class="bg-primary text-black px-6 py-2 !rounded-button font-raleway font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap"
-               >Забронировать стол
-          </button>
+          <div class="flex items-center space-x-4">
+            <button class="hidden md:block bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap">
+              Забронировать стол
+            </button>
+            <button id="mobile-menu-button" class="md:hidden text-white p-2">
+            <i class="ri-menu-line text-2xl"></i>
+            </button>
+          </div>
         </div>
       </nav>
+    <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-black/95 z-50 p-6">
+        <div class="flex justify-end mb-8">
+          <button id="close-menu-button" class="text-white p-2">
+          <i class="ri-close-line text-2xl"></i>
+          </button>
+        </div>
+        <div class="flex flex-col space-y-6">
+            <a href="#about" class="text-white hover:text-primary transition-colors duration-300"
+            >О ресторане</a>
+            <a href="#cuisine" class="text-white hover:text-primary transition-colors duration-300"
+            >О кухне</a>
+            <a href="#menu" class="text-white hover:text-primary transition-colors duration-300"
+            >Меню</a>
+            <a href="#delivery" class="text-white hover:text-primary transition-colors duration-300"
+            >Доставка</a>
+            <a href="#contact" class="text-white hover:text-primary transition-colors duration-300"
+            >Контакты</a>
+            <a href="/gallery.html" class="text-white hover:text-primary transition-colors duration-300"
+            >Галерея</a>
+            <button class="bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap">
+            Забронировать стол
+            </button>
+          </div>
+        </div>
     </header>
     <!-- Hero Section -->
     <section
@@ -522,6 +551,29 @@
         </div>
       </div>
     </footer>
+
+
+
+    <script id="mobile-menu">
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+
+        function toggleMenu() {
+          mobileMenu.classList.toggle('active');
+          document.body.classList.toggle('overflow-hidden');
+        }
+
+      mobileMenuButton.addEventListener('click', toggleMenu);
+      closeMenuButton.addEventListener('click', toggleMenu);
+
+       Array.from(mobileMenuLinks).forEach(link => {
+       link.addEventListener('click', toggleMenu);
+       });
+      });
+    </script>
 
     <script id="scroll-animations">
       document.addEventListener("DOMContentLoaded", function () {
