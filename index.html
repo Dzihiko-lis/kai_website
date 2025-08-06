@@ -152,28 +152,32 @@
     
     </header>
          <!-- 🌒 Оверлей - ЗА пределами хедера -->
-<div id="overlay" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+<div id="overlay" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+  
+</div>
 
 <!-- 📱 Мобильное меню - тоже вне хедера -->
 <div id="mobile-menu"
   class="fixed inset-0 flex justify-end transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-  <div class="w-64 h-full bg-black p-6 relative">
-    <button id="close-menu-button"
-      class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors">
-      <i class="ri-close-line text-2xl"></i>
-    </button>
-    <div class="bg-black w-72 p-6 mt-12 rounded-r-xl shadow-lg">
-      <div class="flex flex-col space-y-6">
-        <a href="#about" class="text-white hover:text-primary transition-colors duration-300">О ресторане</a>
-        <a href="#cuisine" class="text-white hover:text-primary transition-colors duration-300">Кухня</a>
-        <a href="#interior" class="text-white hover:text-primary transition-colors duration-300">Интерьер</a>
-        <a href="#menu" class="text-white hover:text-primary transition-colors duration-300">Меню</a>
-        <a href="#contact" class="text-white hover:text-primary transition-colors duration-300">Контакты</a>
-        <button class="self-start bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap mt-4">
-          Забронировать стол
-        </button>
-      </div>
+  <div class="h-full bg-black p-6 relative mr-4 w-64 rounded-r-xl shadow-lg">
+  <button id="close-menu-button"
+          class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors">
+    <i class="ri-close-line text-2xl"></i>
+  </button>
+
+  <!-- Контейнер подложки -->
+  <div class="w-full p-6 mt-12">
+    <div class="flex flex-col space-y-6">
+      <a href="#about" class="text-white hover:text-primary transition-colors duration-300">О ресторане</a>
+      <a href="#cuisine" class="text-white hover:text-primary transition-colors duration-300">Кухня</a>
+      <a href="#interior" class="text-white hover:text-primary transition-colors duration-300">Интерьер</a>
+      <a href="#menu" class="text-white hover:text-primary transition-colors duration-300">Меню</a>
+      <a href="#contact" class="text-white hover:text-primary transition-colors duration-300">Контакты</a>
+      <button class="self-start bg-primary text-black px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors duration-300 whitespace-nowrap mt-4">
+        Забронировать стол
+      </button>
     </div>
+  </div>
   </div>
 </div>
 
