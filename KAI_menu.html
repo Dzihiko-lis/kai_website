@@ -1,89 +1,216 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KAI — Японская кухня премиум-класса</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KAI Restaurant - Авторская японская кухня в Москве</title>
+    <meta
+      name="description"
+      content="KAI - новая концепция знакового места. Премиальный японский ресторан с авторской кухней и изысканной атмосферой."
+    />
+
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Prosto+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .active-btn {
       background-color: #111;
       color: white;
     }
+    .section-header {
+      scroll-margin-top: 100px; /* высота фиксированного меню */
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
-  <!-- HEADER -->
-  <header class="bg-white border-b border-gray-200">
-    <div class="container mx-auto px-4 py-8 text-center">
-      <h1 class="text-4xl font-bold tracking-wider mb-2">KAI</h1>
-      <p class="text-gray-500 text-lg">Японская кухня премиум-класса</p>
-    </div>
-  </header>
+  <!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-sm transition-all duration-300">
+  <nav class="px-6 py-4">
+    <div class="flex items-center justify-between max-w-7xl mx-auto">
+      <!-- Логотип -->
+      <a href="#hero" class="text-2xl font-bold text-white tracking-wider font-prosto">
+        KAI
+      </a>
 
-  <!-- NAVIGATION -->
-  <div class="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-gray-200">
-    <div class="overflow-x-auto">
-      <div class="flex gap-2 p-4 min-w-max" id="menu-nav">
-        <button data-target="sushi-sashimi" class="px-3 py-1 border rounded text-sm">Суши и сашими</button>
-        <button data-target="rolls" class="px-3 py-1 border rounded text-sm">Роллы</button>
-        <button data-target="signature-rolls" class="px-3 py-1 border rounded text-sm">Фирменные роллы</button>
-        <button data-target="wagyu" class="px-3 py-1 border rounded text-sm">Мраморная говядина</button>
-        <button data-target="appetizers" class="px-3 py-1 border rounded text-sm">Закуски</button>
-        <button data-target="hot-dishes" class="px-3 py-1 border rounded text-sm">Горячие блюда</button>
-        <button data-target="salads" class="px-3 py-1 border rounded text-sm">Салаты</button>
-        <button data-target="kushiyaki" class="px-3 py-1 border rounded text-sm">Кушияки</button>
-        <button data-target="tempura" class="px-3 py-1 border rounded text-sm">Темпура</button>
-        <button data-target="soups-rice" class="px-3 py-1 border rounded text-sm">Супы и рис</button>
+      <!-- Десктопное меню -->
+      <div class="hidden md:flex space-x-8">
+        <a href="#about" class="text-white hover:text-primary transition-colors">О ресторане</a>
+        <a href="#contact" class="text-white hover:text-primary transition-colors">Контакты</a>
+        <a href="KAI_menu.html" class="text-white hover:text-primary transition-colors">Меню</a>
+        <a href="gallery.html" class="text-white hover:text-primary transition-colors">Галерея</a>
+      </div>
+
+      <!-- Кнопка и бургер -->
+      <div class="flex items-center space-x-4">
+        <button class="hidden md:block bg-[#B3916A] text-black px-6 py-2 !rounded-md font-medium hover:bg-primary/90 transition-colors ">
+          Забронировать стол
+        </button>
+        <button id="burger-menu-button" class="md:hidden w-10 h-10 flex items-center justify-center text-white hover:text-primary">
+          <i class="ri-menu-line text-2xl"></i>
+        </button>
       </div>
     </div>
+  </nav>
+</header>
+
+<!-- Оверлей -->
+<div id="overlay" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+
+<!-- Мобильное меню -->
+<div id="mobile-menu" class="fixed inset-0 flex justify-end transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+  <div class="h-full bg-black p-6 relative w-64 rounded-r-xl shadow-lg ml-auto">
+    <button id="close-menu-button" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white hover:text-primary">
+      <i class="ri-close-line text-2xl"></i>
+    </button>
+    <div class="mt-12 flex flex-col space-y-6">
+      <a href="#about" class="text-white hover:text-primary transition-colors">О ресторане</a>
+      <a href="#contact" class="text-white hover:text-primary transition-colors">Контакты</a>
+      <a href="KAI_menu.html" class="text-white hover:text-primary transition-colors">Меню</a>
+      <a href="gallery.html" class="text-white hover:text-primary transition-colors">Галерея</a>
+      <button class="self-start bg-[#B3916A] text-black px-6 py-2 !rounded-md font-medium hover:bg-primary/90 transition-colors mt-4">
+        Забронировать стол
+      </button>
+    </div>
   </div>
+</div>
+
+<!-- Навигация по категориям меню -->
+<div class="sticky top-[72px] z-40 bg-white/90 backdrop-blur border-b border-gray-200">
+  <div class="overflow-x-auto">
+    <div class="flex gap-2 p-4 min-w-max" id="menu-nav">
+      <button data-target="sushi-sashimi-anchor" class="px-3 py-1 border rounded text-sm"
+>Суши и сашими</button>
+      <button data-target="rolls-anchor" class="px-3 py-1 border rounded text-sm"
+>Роллы</button>
+      <button data-target="S=salads-appetizers" class="px-3 py-1 border rounded text-sm"
+>Салаты и закуски</button>
+      <button data-target="tempura" class="px-3 py-1 border rounded text-sm"
+>Темпура</button>
+      <button data-target="grill" class="px-3 py-1 border rounded text-sm"
+>Блюда на гриле</button>
+      <button data-target="wood-oven" class="px-3 py-1 border rounded text-sm"
+>Блюда из дровяной печи</button>
+      <button data-target="main-dish" class="px-3 py-1 border rounded text-sm"
+>Горячие блюда</button>
+      <button data-target="wagyu" class="px-3 py-1 border rounded text-sm"
+>Мраморная говядина</button>
+      
+    </div>
+  </div>
+</div>
 
   <!-- MAIN -->
-  <main class="container mx-auto px-4 pb-16">
+  <main class="container mx-auto px-4 pb-16 pt-20">
 
     <!-- СЕКЦИЯ: Суши и сашими -->
     <section id="sushi-sashimi" class="mb-12">
-      <div class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2 tracking-wide">Суши и сашими</h2>
-        <p class="text-gray-500 text-sm leading-relaxed max-w-2xl">
-          Цена за 1 шт. Свежайшие морепродукты высшего качества
+<!-- Якорь с отступом -->
+  <div id="sushi-sashimi-anchor" style="position: relative; top: -40px; height: 40px; visibility: hidden;"></div>
+      <div class="mb">
+        <h2 class="text-3xl font-semibold italic mb-2 tracking-wide text-center"
+>Суши и сашими</h2>
+        <!-- ПОДСЕКЦИЯ: Фирменные сашими -->
+         <h3 class="text-2xl font-semibold mb-3 tracking-wide"
+>Фирменные сашими</h3>
+<p class="text-gray-500 text-sm leading-relaxed mb-1 max-w-2xl"
+>Тонко нарезанные свежие кусочки рыбы: классика и особые позиции от шефа
         </p>
         <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
       </div>
       <div>
-        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Тунец бигай</span><span>550 ₽</span></div>
-        <div class="p-4 border-b border-gray-200 flex justify-between bg-yellow-50"><span>Тунец блюфин <span class="text-red-500">Хит</span></span><span class="font-semibold text-red-500">1100 ₽</span></div>
-        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Чу-торо</span><span>1400 ₽</span></div>
-        <div class="p-4 border-b border-gray-200 flex justify-between"><span>О-торо</span><span>1600 ₽</span></div>
-        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Опаленное о-торо</span><span>1600 ₽</span></div>
-        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Желтохвост</span><span>1100 ₽</span></div>
-        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Креветка</span><span>400 ₽</span></div>
-        <!-- ... (все остальные позиции) -->
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Тунец бигай</span><span
+>550 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Чу-торо</span><span
+>1400 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>О-торо</span><span
+>1600 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Опаленное о-торо</span><span
+>1600 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Желтохвост</span><span
+>1100 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Креветка</span><span
+>400 ₽</span></div>
       </div>
-    </section>
-
-    <!-- СЕКЦИЯ: Роллы -->
-    <section id="rolls" class="mb-12">
-      <div class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2 tracking-wide">Роллы</h2>
-        <p class="text-gray-500 text-sm leading-relaxed max-w-2xl">
-          Cut — нарезанные роллы, Hand — ручные роллы
+    
+ <!-- ПОДСЕКЦИЯ: Сашими НС -->
+         <h3 class="text-2xl font-semibold mt-3 mb-3 tracking-wide"
+>Сашими в новом стиле</h3>
+<p class="text-gray-500 text-sm leading-relaxed mb-1 max-w-2xl"
+>Авторские сашими с оригинальными соусами и подачей
         </p>
         <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
       </div>
-      <div class="grid md:grid-cols-2 gap-x-8">
-        <div>
-          <h3 class="font-medium mb-4 text-gray-500">Cut роллы</h3>
+      <div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Тунец бигай</span><span
+>550 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Чу-торо</span><span
+>1400 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>О-торо</span><span
+>1600 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Опаленное о-торо</span><span
+>1600 ₽</span></div>
+      </div>
+   
+<!-- ПОДСЕКЦИЯ: Тирадито -->
+         <h3 class="text-2xl font-semibold mt-3 mb-3 tracking-wide"
+>Тирадито</h3>
+<p class="text-gray-500 text-sm leading-relaxed mb-1 max-w-2xl"
+>Тонко нарезанная рыба или морепродукты с цитрусовыми и свежими соусами
+        </p>
+        <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+      </div>
+      <div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Тунец бигай</span><span
+>550 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Чу-торо</span><span
+>1400 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>О-торо</span><span
+>1600 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Опаленное о-торо</span><span
+>1600 ₽</span></div>
+      </div>
+
+
+<!-- ПОДСЕКЦИЯ: Суши и сашими -->
+         <h3 class="text-2xl font-semibold mt-3 mb-3 tracking-wide"
+>Суши и сашими </h3>
+        <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent">
+        </div>
+        <div class="grid md:grid-cols-2 gap-x-8">
+         <div>
           <div>
-            <div class="p-4 border-b border-gray-200 flex justify-between"><span>Лосось / пряный лосось</span><span>700 ₽</span></div>
-            <div class="p-4 border-b border-gray-200 flex justify-between"><span>Лосось и авокадо</span><span>800 ₽</span></div>
-            <!-- ... -->
+           <div class="p-4 border-b border-gray-200 flex justify-between"><span>Лосось / пряный лосось</span><span>700 ₽</span>
+           </div>
+           <div class="p-4 border-b border-gray-200 flex justify-between"><span>Лосось и авокадо</span><span>800 ₽</span>
+           </div>
+<!-- ... -->
           </div>
         </div>
         <div>
-          <h3 class="font-medium mb-4 text-gray-500">Hand роллы</h3>
           <div>
             <div class="p-4 border-b border-gray-200 flex justify-between"><span>Лосось / пряный лосось</span><span>550 ₽</span></div>
             <!-- ... -->
@@ -91,6 +218,150 @@
         </div>
       </div>
     </section>
+
+<!-- СЕКЦИЯ: Роллы -->
+<section id="rolls" class="mb-12">
+<div id="rolls-anchor" style="position: relative; top: -40px; height: 40px; visibility: hidden;"></div>
+  <div class="mb-6">
+    <h2 class="text-3xl font-semibold italic mb-2 tracking-wide text-center">
+      Роллы
+    </h2>
+    <p class="text-gray-500 text-sm leading-relaxed max-w-2xl mx-auto text-center">
+      <i>Cut</i> — нарезанные роллы, <i>Hand</i> — конусообразные роллы
+    </p>
+  <div class="overflow-x-auto">
+    <div class="min-w-[600px]">
+      <!-- Заголовки колонок -->
+      <div class="flex border-b border-gray-300 font-medium text-gray-500 text-center">
+        <div class="flex-1 px-4 py-2"></div>
+        <div class="w-24 px-4 py-2">Cut</div>
+        <div class="w-24 px-4 py-2">Hand</div>
+      </div>
+
+      <!-- Каждая строка -->
+      <div class="border-b border-gray-200 flex items-center">
+        <div class="flex-1 px-4 py-4 break-words">Лосось / пряный лосось</div>
+        <div class="w-24 px-4 py-4 text-center">700 ₽</div>
+        <div class="w-24 px-4 py-4 text-center">550 ₽</div>
+      </div>
+
+      <div class="border-b border-gray-200 flex items-center">
+        <div class="flex-1 px-4 py-4 break-words">Лосось и авокадо</div>
+        <div class="w-24 px-4 py-4 text-center">800 ₽</div>
+        <div class="w-24 px-4 py-4 text-center">600 ₽</div>
+      </div>
+
+      <div class="border-b border-gray-200 flex items-center">
+        <div class="flex-1 px-4 py-4 break-words">Кожица лосося</div>
+        <div class="w-24 px-4 py-4 text-center">800 ₽</div>
+        <div class="w-24 px-4 py-4 text-center">550 ₽</div>
+      </div>
+    </div>
+  </div>
+
+<!-- ПОДСЕКЦИЯ: Фирменные роллы -->
+         <h3 class="text-2xl font-semibold mt-3 mb-3 tracking-wide"
+>Фирменные роллы </h3>
+        <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent">
+        </div>
+        <div class="grid md:grid-cols-2 gap-x-8">
+         <div>
+          <div>
+           <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Лосось / пряный лосось</span><span
+>700 ₽</span>
+           </div>
+           <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Лосось и авокадо</span><span
+>800 ₽</span>
+           </div>
+<!-- ... -->
+          </div>
+        </div>
+        <div>
+          <div>
+            <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Лосось / пряный лосось</span><span
+>550 ₽</span></div>
+            <!-- ... -->
+          </div>
+        </div>
+      </div>
+</section>
+
+
+
+<!-- СЕКЦИЯ: Фирменные сашими -->
+    <section id="signature-sashimi" class="mb-12">
+      <div class="mb-6">
+        <h2 class="text-3xl font-semibold mb-2 tracking-wide text-center"
+>Фирменные сашими</h2>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-2xl">
+          Цена за 1 порцию. Свежайшие морепродукты высшего качества
+        </p>
+        <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+      </div>
+      <div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Тунец бигай</span><span>550 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between bg-yellow-50">
+  <span>
+    Тунец блюфин 
+    <span class="inline-flex items-center border border-red-500 text-red-500 text-xs font-semibold px-2 py-0.5 rounded ml-2">
+      <i class="ri-fire-line w-3 h-4 mr-1"></i>
+      Хит
+    </span>
+  </span>
+  <span class="font-semibold text-red-500">1100 ₽</span>
+</div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Чу-торо</span><span>1400 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span>О-торо</span><span>1600 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Опаленное о-торо</span><span>1600 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Желтохвост</span><span>1100 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span>Креветка</span><span>400 ₽</span></div>
+      </div>
+    </section>
+
+<!-- СЕКЦИЯ: Закуски -->
+    <section id="appetizers" class="mb-12">
+        <h2 class="text-3xl font-semibold mb-2 tracking-wide text-center"
+>Закуски</h2>
+
+
+<!-- ПОДСЕКЦИЯ: Такос -->
+         <h3 class="text-2xl font-semibold- italic mb-3 tracking-wide"
+>Такос</h3>
+<p class="text-gray-500 text-sm leading-relaxed mb-1 max-w-2xl">
+          В порции 2 шт.
+        </p>
+        <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+      </div>
+
+      <div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Курица антикучо </span><span>550 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between bg-yellow-50"><span
+>Лосось с острым мисо <span class="text-red-500"
+>Хит</span></span><span class="font-semibold text-red-500"
+>1100 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Японская мраморная говядина
+чили понзу</span><span
+>1400 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Креветка и авокадо севиче</span><span
+>1600 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Тунец с сухим мисо</span><span
+>1600 ₽</span></div>
+        <div class="p-4 border-b border-gray-200 flex justify-between"><span
+>Королевский краб васаби айоли</span><span
+>1100 ₽</span></div>
+       
+        <!-- ... (все остальные позиции) -->
+      </div>
+   
+
+    
 
     <!-- Здесь будут остальные секции меню:
          signature-rolls, wagyu, appetizers, hot-dishes, salads, kushiyaki, tempura, soups-rice
@@ -108,25 +379,130 @@
 
   <!-- JS: scroll + active section -->
   <script>
-    const buttons = document.querySelectorAll('#menu-nav button');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById(btn.dataset.target).scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+document.addEventListener('DOMContentLoaded', () => {
+  // --- элементы меню / оверлей ---
+  const burgerButton = document.getElementById('burger-menu-button');
+  const closeButton  = document.getElementById('close-menu-button');
+  const mobileMenu   = document.getElementById('mobile-menu');
+  const overlay      = document.getElementById('overlay');
+
+  // безопасные проверки
+  function safe(el) { return el !== null && el !== undefined; }
+
+  // --- открытие / закрытие мобильного меню ---
+  function openMenu() {
+    if (safe(mobileMenu)) mobileMenu.classList.remove('translate-x-full');
+    if (safe(overlay)) {
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    if (safe(mobileMenu)) mobileMenu.classList.add('translate-x-full');
+    if (safe(overlay)) {
+      overlay.classList.add('opacity-0', 'pointer-events-none');
+      overlay.classList.remove('opacity-100');
+    }
+    document.body.style.overflow = '';
+  }
+
+  if (safe(burgerButton)) burgerButton.addEventListener('click', openMenu);
+  if (safe(closeButton))  closeButton.addEventListener('click', closeMenu);
+  if (safe(overlay))      overlay.addEventListener('click', closeMenu);
+
+  // Закрыть меню при клике на ссылку внутри мобильного меню
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // --- навигация и подсветка активной секции ---
+  const navButtons = Array.from(document.querySelectorAll('#menu-nav button'));
+  // берём только секции в main с id
+  const sections = Array.from(document.querySelectorAll('main section[id]'));
+
+  // стиль активной кнопки — если нужно, можно добавить/изменить в CSS
+  function setActiveBtn(id) {
+    navButtons.forEach(b => {
+      if (b.dataset.target === id) b.classList.add('active-btn');
+      else b.classList.remove('active-btn');
     });
+  }
 
-    const sections = document.querySelectorAll('main section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          buttons.forEach(b => b.classList.remove('active-btn'));
-          const activeBtn = document.querySelector(`#menu-nav button[data-target="${entry.target.id}"]`);
-          if (activeBtn) activeBtn.classList.add('active-btn');
+  // высота хедера (учтём её при скролле)
+  const header = document.querySelector('header');
+  function getHeaderHeight() {
+    return header ? header.getBoundingClientRect().height : 0;
+  }
+
+  // плавный скролл с учётом хедера
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = btn.dataset.target;
+      const target = document.getElementById(id);
+      if (!target) return;
+      const headerH = getHeaderHeight();
+      const top = window.pageYOffset + target.getBoundingClientRect().top - headerH - 8; // небольшой отступ
+      window.scrollTo({ top, behavior: 'smooth' });
+
+      // если мобильное меню открыто — закрыть его
+      closeMenu();
+    });
+  });
+
+  // определяем активную секцию на скролле
+  let ticking = false;
+  function onScroll() {
+    const headerH = getHeaderHeight();
+    // выбираем секцию, верх которой находится под хедером, но ещё видима
+    let currentId = null;
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      // условие: верх секции выше (или чуть ниже) нижней границы хедера,
+      // и ниж секции ниже этой же линии — тогда секция "на экране" под хедером
+      const topRelative = rect.top;
+      const bottomRelative = rect.bottom;
+      if (topRelative <= headerH + 10 && bottomRelative > headerH + 10) {
+        currentId = sec.id;
+        break;
+      }
+    }
+
+    // если ничего не найдено (например очень вверху страницы) — выберем ближайшую
+    if (!currentId) {
+      // если у первой секции верх виден — активируем её
+      if (sections.length && window.scrollY < 50) currentId = sections[0].id;
+      else {
+        //fallback: найдём секцию с минимальным абсолютным расстоянием от хедера
+        let minDist = Infinity;
+        for (const sec of sections) {
+          const dist = Math.abs(sec.getBoundingClientRect().top - headerH);
+          if (dist < minDist) {
+            minDist = dist; currentId = sec.id;
+          }
         }
+      }
+    }
+    if (currentId) setActiveBtn(currentId);
+  }
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
       });
-    }, { threshold: 0.3 });
+      ticking = true;
+    }
+  });
 
-    sections.forEach(sec => observer.observe(sec));
-  </script>
+  // запустить один раз при загрузке страницы
+  onScroll();
+
+  // дополнительная диагностика: если подсветка всё ещё не работает — проверьте
+  // в консоли наличие секций и соответствие data-target -> id:
+  // console.log('navButtons', navButtons.map(b=>b.dataset.target));
+  // console.log('sections', sections.map(s=>s.id));
+});
+</script>
 </body>
 </html>
