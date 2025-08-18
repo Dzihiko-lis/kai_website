@@ -53,7 +53,37 @@
         }
         
         .modal {
-            backdrop-filter: blur(8px);
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100vw;
+              height: 100vh;
+              background: rgba(0, 0, 0, 0.8);
+              display: none;            
+              align-items: center;
+              justify-content: center;
+              z-index: 9999;
+        }
+
+        .modal.active {
+              display: flex;             
+        }
+
+        .modal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+        }
+
+        .modal .close-rtn {
+            position:absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+            color:white;
+            cursor: pointer;
+            z-index: 10000;
         }
         
         .sticky-header {
@@ -118,7 +148,7 @@
     <nav class="sticky top-20 bg-white border-b border-gray-200 sticky-nav">
         <div class="w-full px-4 lg:px-8">
             <div class="flex overflow-x-auto menu-scroll py-4 space-x-6">
-                <button class="menu-category-btn whitespace-nowrap px-6 py-2 !rounded-button bg-primary text-white font-base font-medium transition-all" data-category="sushi">
+                <button class="menu-category-btn whitespace-nowrap px-6 py-2 !rounded-button bg-gray-100 text-gray-700 hover:bg-secondary hover:text-primary font-base font-medium transition-all" data-category="sushi">
                     Суши и сашими
                 </button>
                 <button class="menu-category-btn whitespace-nowrap px-6 py-2 !rounded-button bg-gray-100 text-gray-700 hover:bg-secondary hover:text-primary font-base font-medium transition-all" data-category="rolls">
@@ -590,15 +620,15 @@
 
         </section>
 
-        <section id="appetizers" class="py-8">
-            <div class="sticky top-32 bg-white py-4 border-b border-gray-100 sticky-section">
+        <section id="appetizers" class="font-base py-8">
+            <div class="sticky top-36 bg-white/80 py-6 border-b border-gray-100 sticky-section bsckdrop-blur-sm">
                 <div class="w-full px-4 lg:px-8">
-                    <h2 class="text-3xl font-bold text-primary">Закуски</h2>
+                    <h2 class="text-3xl font-normal font-heading text-primary">Закуски</h2>
                 </div>
             </div>
             
             <div class="w-full px-4 lg:px-8 py-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     <div class="dish-card bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
                         <div class="aspect-w-4 aspect-h-3 bg-gray-100">
                             <img src="https://readdy.ai/api/search-image?query=Premium%20edamame%20beans%20in%20elegant%20white%20ceramic%20bowl%2C%20minimalist%20Japanese%20presentation%2C%20soft%20natural%20lighting%2C%20clean%20background%2C%20professional%20food%20photography&width=400&height=300&seq=edamame1&orientation=landscape" 
@@ -705,13 +735,9 @@
         </section>
     </main>
 
-    <div id="photo-modal" class="fixed inset-0 bg-black bg-opacity-90 modal hidden z-50 flex items-center justify-center p-4">
-        <div class="relative max-w-4xl max-h-full">
-            <button id="close-modal" class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors">
-                <i class="ri-close-line text-2xl"></i>
-            </button>
-            <img id="modal-image" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg">
-        </div>
+    <div id="photo-modal" class="modal">
+        <span id="close-modal" class="close-btn">&times;</span>
+        <img id="modal-image" src="" alt="">
     </div>
 
     <footer class="bg-primary text-white py-16">
@@ -791,46 +817,6 @@
         });
     </script>
 
-    <script id="photo-modal">
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('photo-modal');
-            const modalImage = document.getElementById('modal-image');
-            const closeModal = document.getElementById('close-modal');
-            const dishCards = document.querySelectorAll('.dish-card');
-
-            dishCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const img = this.querySelector('img');
-                    const alt = this.querySelector('h3').textContent;
-                    
-                    modalImage.src = img.src;
-                    modalImage.alt = alt;
-                    modal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-
-            closeModal.addEventListener('click', function() {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            });
-
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-    </script>
-
     <script id="active-section-tracking">
         document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('section[id]');
@@ -865,6 +851,60 @@
             });
         });
     </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('photo-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeModal = document.getElementById('close-modal');
+    const dishCards = document.querySelectorAll('.dish-card');
+
+    // функция для получения ширины скроллбара
+    function getScrollbarWidth() {
+        return window.innerWidth - document.documentElement.clientWidth;
+    }
+
+    function openModal(img, alt) {
+        modalImage.src = img.src;
+        modalImage.alt = alt;
+        modal.classList.add('active');
+
+        const scrollBarWidth = getScrollbarWidth();
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = scrollBarWidth + 'px'; // компенсация
+    }
+
+    function closeModalFn() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        document.body.style.paddingRight = '0';
+    }
+
+    dishCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            const alt = this.querySelector('h3').textContent;
+            openModal(img, alt);
+        });
+    });
+
+    closeModal.addEventListener('click', closeModalFn);
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModalFn();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModalFn();
+        }
+    });
+});
+</script>
+
+
 <script>
     !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
     posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
