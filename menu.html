@@ -137,7 +137,7 @@
 
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-white text-gray-900 font-mont">
     <header class="sticky top-0 bg-primary text-white sticky-header">
         <div class="w-full px-4 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -148,16 +148,17 @@
                 </div>
                 
                 <nav class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html#about" class="text-white font-base hover:text-secondary transition-colors font-medium">О ресторане</a>
-                    <a href="index.html#contact" class="text-white font-base hover:text-secondary transition-colors font-medium">Контакты</a>
-                    <a href="menu.html" class="text-white font-base hover:text-secondary transition-colors font-medium">Меню</a>
-                    <a href="#gallery" class="text-white font-base hover:text-secondary transition-colors font-medium">Галерея</a>
+                    <a href="index.html#about" class="text-white font-mont hover:text-secondary transition-colors font-medium">О ресторане</a>
+                    <a href="index.html#contact" class="text-white font-mont hover:text-secondary transition-colors font-medium">Контакты</a>
+                    <a href="menu.html" class="text-white font-mont hover:text-secondary transition-colors font-medium">Меню</a>
+                    <a href="gallery.html" class="text-white font-mont hover:text-secondary transition-colors font-medium">Галерея</a>
                 </nav>
                 
                 <div class="flex items-center space-x-4">
-                    <button class="hidden lg:block bg-secondary text-black font-base px-6 py-3 !rounded-button font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap">
+                    <a href="https://api.whatsapp.com/send?phone=79250104362">
+                    <button class="hidden lg:block bg-secondary text-black font-mont px-6 py-3 !rounded-button font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap">
                         Забронировать стол
-                    </button>
+                    </button></a>
                     
                     <button id="mobile-menu-button" class="lg:hidden w-8 h-8 flex items-center justify-center">
                         <i class="ri-menu-line text-xl"></i>
@@ -168,13 +169,14 @@
         
         <div id="mobile-menu" class="lg:hidden hidden bg-primary border-t border-gray-700">
             <div class="px-4 py-4 space-y-4">
-                <a href="index.html#about" class="block text-white font-base hover:text-secondary transition-colors font-medium">О ресторане</a>
-                <a href="index.html#contact" class="block text-white font-base hover:text-secondary transition-colors font-medium">Контакты</a>
-                <a href="menu.html" class="block text-white font-base hover:text-secondary transition-colors font-medium">Меню</a>
-                <a href="#gallery" class="block text-white font-base hover:text-secondary transition-colors font-medium">Галерея</a>
-                <button class="w-full bg-secondary font-base px-6 py-3 !rounded-button font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap mt-4">
+                <a href="index.html#about" class="block text-white font-mont hover:text-secondary transition-colors font-medium">О ресторане</a>
+                <a href="index.html#contact" class="block text-white font-mont hover:text-secondary transition-colors font-medium">Контакты</a>
+                <a href="menu.html" class="block text-white font-mont hover:text-secondary transition-colors font-medium">Меню</a>
+                <a href="gallery.html" class="block text-white font-mont hover:text-secondary transition-colors font-medium">Галерея</a>
+                <a href="https://api.whatsapp.com/send?phone=79250104362">
+                <button class="w-full bg-secondary font-mont px-6 py-3 !rounded-button font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap mt-4">
                     Забронировать стол
-                </button>
+                </button></a>
             </div>
         </div>
     </header>
@@ -1484,10 +1486,10 @@
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div class="fade-in">
-            <div class="text-3xl font-bold text-white mb-4 tracking-wider font-prosto">
+            <div class="text-3xl font-bold text-white mb-4 tracking-wider font-heading">
               KAI
             </div>
-            <p class="text-white text-base leading-relaxed">
+            <p class="text-beige text-base leading-relaxed">
               Новая концепция знакового места, где&nbsp;гастрономия встречается с
               искусством
             </p>
@@ -1499,7 +1501,7 @@
                 href="tel:+7496453192"
                 class="block hover:text-beige transition-colors"
               >
-                +7 (495) 645-31-92
+                <u>+7 (495) 645-31-92</u>
               </a>
               <p class="text-gray-400">Москва, Крокус Сити Молл, 65-66 км. МКАД</p>
               <p class="text-gray-400">Ежедневно с 13:00 до 01:00</p>
@@ -1509,7 +1511,7 @@
             <h3 class="text-lg font-medium mb-6">Социальные сети</h3>
             <div class="flex space-x-4">
               <a
-                href="#"
+                href="https://api.whatsapp.com/send?phone=79250104362"
                 class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-beige hover:text-black transition-all duration-300"
               >
                 <i class="ri-whatsapp-line"></i>

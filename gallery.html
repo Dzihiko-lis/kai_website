@@ -1,161 +1,302 @@
+
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KAI Restaurant - Галерея</title>
+<head><script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сакура - Премиальный японский ресторан</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Prosto+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#d4b896',
+                        beige: "#B3916A"
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'base': ["Raleway", "sans-serif"],
+                        'heading': ["Prosto One", "sans-serif"],
+                        'mont': ["Montserrat", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+        
+        .menu-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .menu-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .modal {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100vw;
+              height: 100vh;
+              background: rgba(0, 0, 0, 0.8);
+              display: none;            
+              align-items: center;
+              justify-content: center;
+              z-index: 9999;
+        }
 
-  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Prosto+One&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+        .modal.active {
+              display: flex;             
+        }
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: "#000000", // черный
-            secondary: "#D4C5B4", // песочный
-            beige: "#B3916A" // бежевый
-          },
-          borderRadius: {
-            button: "8px",
-          },
-          fontFamily: {
-            raleway: ["Raleway", "sans-serif"],
-            prosto: ["Prosto One", "sans-serif"],
-            mont: ["Raleway", "sans-serif"],
-          },
-        },
-      },
-    };
-  </script>
+        .modal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+        }
 
-  <style>
-          .masonry {
-       display: grid;
-       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-       grid-auto-rows: 10px; /* базовая "ячейка" */
-       gap: 10px;
-      }
+        .modal .close-rtn {
+            position:absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+            color:white;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        
+        .sticky-header {
+            z-index: 100;
+        }
+        
+        .sticky-nav {
+            z-index: 90;
+        }
+        
+        .sticky-section {
+            z-index: 80;
+        }
 
-      .masonry img {
-        width: 100%;
-        height: auto;
-        display: block;
-        grid-row-end: span 30; /* потом будем менять под реальный размер */
-      }
-  </style>
+        /* Для Chrome, Edge, Safari */
+        .menu-scroll::-webkit-scrollbar {
+        height: 6px;              /* высота горизонтального скроллбара */
+        }
+
+        .menu-scroll::-webkit-scrollbar-track {
+        background: transparent;  /* фон дорожки */
+        }
+
+        .menu-scroll::-webkit-scrollbar-thumb {
+        background: #cbd5e1;      /* серый (Tailwind gray-300) */
+        border-radius: 9999px;    /* круглые края */
+        }
+
+        .menu-scroll::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;      /* темнее при наведении (Tailwind gray-400) */
+        }
+
+        /* Для Firefox */
+        .menu-scroll {
+        scrollbar-width: thin;          /* тонкий скроллбар */
+        scrollbar-color: #cbd5e1 transparent; /* цвет ползунка и трека */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span {
+            user-select: none;
+            cursor: default;
+        }
+
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-raleway">
-
-  <!-- HEADER -->
-  <header class="sticky top-0 bg-black text-white z-50">
-    <div class="w-full px-4 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        <div class="flex-shrink-0">
-          <a href="index.html" class="font-heading text-white text-2xl hover:text-white transition-colors">KAI</a>
+<body class="bg-white text-gray-900 font-mont">
+    <header class="sticky top-0 bg-primary text-white sticky-header">
+        <div class="w-full px-4 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="font-heading text-white text-2xl hover:text-white transition-colors">
+                    KAI
+                    </a>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html#about" class="text-white font-mont hover:text-secondary transition-colors font-medium">О ресторане</a>
+                    <a href="index.html#contact" class="text-white font-mont hover:text-secondary transition-colors font-medium">Контакты</a>
+                    <a href="menu.html" class="text-white font-mont hover:text-secondary transition-colors font-medium">Меню</a>
+                    <a href="gallery.html" class="text-white font-mont hover:text-secondary transition-colors font-medium">Галерея</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="https://api.whatsapp.com/send?phone=79250104362">
+                    <button class="hidden lg:block bg-secondary text-black font-mont px-6 py-3 !rounded-button font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap">
+                        Забронировать стол
+                    </button></a>
+                    
+                    <button id="mobile-menu-button" class="lg:hidden w-8 h-8 flex items-center justify-center">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-
-        <nav class="hidden lg:flex items-center space-x-8">
-          <a href="index.html#about" class="text-white font-base hover:text-beige transition-colors font-medium">О ресторане</a>
-          <a href="index.html#contacts" class="text-white font-base hover:text-beige transition-colors font-medium">Контакты</a>
-          <a href="menu.html" class="text-white font-base hover:text-beige transition-colors font-medium">Меню</a>
-          <a href="gallery.html" class="text-white font-base hover:text-beige transition-colors font-medium">Галерея</a>
-        </nav>
-
-        <div class="flex items-center space-x-4">
-          <button class="hidden lg:block bg-beige text-black font-base px-6 py-3 !rounded-button font-semibold hover:bg-secondary transition-all whitespace-nowrap">
-            Забронировать стол
-          </button>
-
-          <button id="mobile-menu-button" class="lg:hidden w-8 h-8 flex items-center justify-center">
-            <i class="ri-menu-line text-xl"></i>
-          </button>
+        
+        <div id="mobile-menu" class="lg:hidden hidden bg-primary border-t border-gray-700">
+            <div class="px-4 py-4 space-y-4">
+                <a href="index.html#about" class="block text-white font-mont hover:text-secondary transition-colors font-medium">О ресторане</a>
+                <a href="index.html#contact" class="block text-white font-mont hover:text-secondary transition-colors font-medium">Контакты</a>
+                <a href="menu.html" class="block text-white font-mont hover:text-secondary transition-colors font-medium">Меню</a>
+                <a href="gallery.html" class="block text-white font-mont hover:text-secondary transition-colors font-medium">Галерея</a>
+                <a href="https://api.whatsapp.com/send?phone=79250104362">
+                <button class="w-full bg-secondary font-mont px-6 py-3 !rounded-button font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap mt-4">
+                    Забронировать стол
+                </button></a>
+            </div>
         </div>
-      </div>
-    </div>
+    </header>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="lg:hidden hidden bg-primary border-t border-gray-700">
-      <div class="px-4 py-4 space-y-4">
-        <a href="index.html#about" class="block text-white hover:text-beige">О ресторане</a>
-        <a href="index.html#contacts" class="block text-white hover:text-beige">Контакты</a>
-        <a href="menu.html" class="block text-white hover:text-beige">Меню</a>
-        <a href="gallery.html" class="block text-white hover:text-beige">Галерея</a>
-        <button class="w-full bg-beige text-black px-6 py-3 !rounded-button font-semibold hover:bg-secondary transition-all whitespace-nowrap mt-4">
-          Забронировать стол
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- GALLERY -->
-  <main class="py-20 bg-white">
+<main class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-prosto mb-6 text-gray-900">Галерея</h1>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Атмосфера и кухня ресторана KAI</p>
+      <div class="text-center mb-10">
+        <h1 class="text-4xl md:text-5xl font-heading mb-8 text-gray-900">Галерея</h1>
       </div>
 
       <!-- Masonry grid -->
-      <div class="mansory">
-        <img src="images/gallery1.jpg" alt="Фото 1" class="grid-row-end: span 20;" />
-        <img src="images/gallery2.jpg" alt="Фото 2" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-        <img src="images/gallery3.jpg" alt="Фото 3" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-        <img src="images/gallery4.jpg" alt="Фото 4" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-        <img src="images/gallery5.jpg" alt="Фото 5" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-        <img src="images/gallery6.jpg" alt="Фото 6" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-        <img src="images/gallery7.jpg" alt="Фото 7" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-        <img src="images/gallery8.jpg" alt="Фото 8" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+      <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+        <img src="images/gallery1.png" alt="Фото 1" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+        <img src="images/gallery2.png" alt="Фото 2" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+        <img src="images/gallery3.JPG" alt="Фото 3" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+        <img src="images/gallery4.png" alt="Фото 4" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+        <img src="images/gallery5.png" alt="Фото 5" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+        <img src="images/gallery6.JPG" alt="Фото 6" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+        <img src="images/gallery7.png" alt="Фото 7" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+        <img src="images/gallery8.JPG" alt="Фото 8" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
       </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-black text-white py-16 mt-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-        <div>
-          <div class="text-3xl font-bold text-white mb-4 tracking-wider font-prosto">KAI</div>
-          <p class="text-white text-base leading-relaxed">
-            Новая концепция знакового места, где&nbsp;гастрономия встречается с искусством
-          </p>
-        </div>
-        <div>
-          <h3 class="text-lg font-medium mb-6">Контакты</h3>
-          <div class="space-y-3">
-            <a href="tel:+7496453192" class="block hover:text-primary transition-colors">+7 (495) 645-31-92</a>
-            <p class="text-gray-400">Москва, Крокус Сити Молл, 65-66 км. МКАД</p>
-            <p class="text-gray-400">Ежедневно с 13:00 до 01:00</p>
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <div class="fade-in">
+            <div class="text-3xl font-bold text-white mb-4 tracking-wider font-heading">
+              KAI
+            </div>
+            <p class="text-beige text-base leading-relaxed">
+              Новая концепция знакового места, где&nbsp;гастрономия встречается с
+              искусством
+            </p>
+          </div>
+          <div class="fade-in">
+            <h3 class="text-lg font-medium mb-6">Контакты</h3>
+            <div class="space-y-3">
+              <a
+                href="tel:+7496453192"
+                class="block hover:text-beige transition-colors"
+              >
+                <u>+7 (495) 645-31-92</u>
+              </a>
+              <p class="text-gray-400">Москва, Крокус Сити Молл, 65-66 км. МКАД</p>
+              <p class="text-gray-400">Ежедневно с 13:00 до 01:00</p>
+            </div>
+          </div>
+          <div class="fade-in">
+            <h3 class="text-lg font-medium mb-6">Социальные сети</h3>
+            <div class="flex space-x-4">
+              <a
+                href="https://api.whatsapp.com/send?phone=79250104362"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-beige hover:text-black transition-all duration-300"
+              >
+                <i class="ri-whatsapp-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-beige hover:text-black transition-all duration-300"
+              >
+                <i class="ri-telegram-line"></i>
+              </a>
+            </div>
           </div>
         </div>
-        <div>
-          <h3 class="text-lg font-medium mb-6">Социальные сети</h3>
-          <div class="flex space-x-4">
-            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-primary hover:text-black transition-all duration-300">
-              <i class="ri-whatsapp-line"></i>
-            </a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 !rounded-full hover:bg-primary hover:text-black transition-all duration-300">
-              <i class="ri-telegram-line"></i>
-            </a>
+        <div class="border-t border-beige/30 pt-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+          >
+            <p class="text-gray-400 text-sm">
+              © 2025 KAI Restaurant. All rights reserved
+            </p>
+            <div class="flex space-x-6 text-sm">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-beige transition-colors"
+                >Политика конфиденциальности</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-beige transition-colors"
+                >Пользовательское соглашение</a
+              >
+            </div>
           </div>
         </div>
       </div>
-      <div class="border-t border-primary/30 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <p class="text-gray-400 text-sm">© 2025 KAI Restaurant. All rights reserved</p>
-        <div class="flex space-x-6 text-sm">
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors">Политика конфиденциальности</a>
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors">Пользовательское соглашение</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Mobile menu script -->
-  <script>
+    <script id="mobile-menu-toggle">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = mobileMenuButton.querySelector('i');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.className = 'ri-menu-line text-xl';
+                } else {
+                    menuIcon.className = 'ri-close-line text-xl';
+                }
+            });
+        });
+    </script>
+
+    <script>
+        const menu = document.getElementById('menuScroll');
+
+            menu.addEventListener('wheel', (evt) => {
+                evt.preventDefault(); // отменяем вертикальный скролл
+            menu.scrollLeft += evt.deltaY; // двигаем горизонтально
+          });
+    </script>
+
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
@@ -171,6 +312,5 @@
       });
     });
   </script>
-
 </body>
 </html>
