@@ -100,6 +100,30 @@
         .sticky-section {
             z-index: 80;
         }
+
+        /* Для Chrome, Edge, Safari */
+        .menu-scroll::-webkit-scrollbar {
+        height: 6px;              /* высота горизонтального скроллбара */
+        }
+
+        .menu-scroll::-webkit-scrollbar-track {
+        background: transparent;  /* фон дорожки */
+        }
+
+        .menu-scroll::-webkit-scrollbar-thumb {
+        background: #cbd5e1;      /* серый (Tailwind gray-300) */
+        border-radius: 9999px;    /* круглые края */
+        }
+
+        .menu-scroll::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;      /* темнее при наведении (Tailwind gray-400) */
+        }
+
+        /* Для Firefox */
+        .menu-scroll {
+        scrollbar-width: thin;          /* тонкий скроллбар */
+        scrollbar-color: #cbd5e1 transparent; /* цвет ползунка и трека */
+        }
         
         body {
             font-family: 'Inter', sans-serif;
@@ -156,7 +180,7 @@
 
     <nav class="sticky top-20 bg-white border-b border-gray-200 sticky-nav">
         <div class="w-full px-0">
-            <div class="flex overflow-x-auto py-4 space-x-4 px-4">
+            <div id="menuScroll" class="flex overflow-x-auto menu-scroll py-4 space-x-6 px-4">
                 <button class="menu-category-btn whitespace-nowrap px-4 py-2 !rounded-button text-sm bg-gray-100 text-gray-700 hover:bg-secondary hover:text-primary font-base font-medium transition-all" data-category="cold-appetizers">
                     Холодные закуски
                 </button>
@@ -202,13 +226,13 @@
     </div>
 
     <!-- Подсекция -->
-    <div class="bg-white py-3 border-b border-gray-100">
+    <div class="bg-white py-3">
       <div class="w-full px-4 lg:px-8">
         <h3 class="text-2xl font-semibold font-mont text-primary">Фирменные сашими</h3>
       </div>
     </div>
 
-    <p class="text-gray-500 text-sm font-mont leading-relaxed mb-1 max-w-2xl px-4 lg:px-8">
+    <p class="text-gray-500  font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
       2 шт в порции
     </p>
     <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
@@ -276,13 +300,13 @@
     </div>
 
     <!-- Подсекция -->
-    <div class="bg-white py-5 border-b border-gray-100">
+    <div class="bg-white py-5">
       <div class="w-full px-4 lg:px-8">
         <h3 class="text-2xl font-semibold font-mont text-primary">Сашими в новом стиле</h3>
       </div>
     </div>
 
-    <p class="text-gray-500 text-sm font-mont leading-relaxed mb-1 max-w-2xl px-4 lg:px-8">
+    <p class="text-gray-500  font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
       Комментарий к секции
     </p>
     <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
@@ -310,13 +334,13 @@
     </div>
 
     <!-- Подсекция -->
-    <div class="bg-white py-5 border-b border-gray-100">
+    <div class="bg-white py-5">
       <div class="w-full px-4 lg:px-8">
         <h3 class="text-2xl font-semibold font-mont text-primary">Тирадито</h3>
       </div>
     </div>
 
-    <p class="text-gray-500 text-sm font-mont leading-relaxed mb-1 max-w-2xl px-4 lg:px-8">
+    <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
       Комментарий к секции
     </p>
     <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
@@ -340,13 +364,13 @@
     </div>
 
     <!-- Подсекция -->
-    <div class="bg-white py-5 border-b border-gray-100">
+    <div class="bg-white py-5">
       <div class="w-full px-4 lg:px-8">
         <h3 class="text-2xl font-semibold font-mont text-primary">Тартар с&nbsp;черной икрой</h3>
       </div>
     </div>
 
-    <p class="text-gray-500 text-sm font-mont leading-relaxed mb-1 max-w-2xl px-4 lg:px-8">
+    <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
       Комментарий к секции
     </p>
     <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
@@ -367,20 +391,20 @@
           <span class="text-right">3000&nbsp;₽</span>
         </div>
       <div class="p-4 border-b border-gray-200 flex justify-between">
-          <span class="pr-6">Чу-торо и лосось с&nbsp;нори чипсами</span>
+          <span class="pr-6">Чу&#8209;торо и лосось с&nbsp;нори чипсами</span>
           <span class="text-right">3500&nbsp;₽</span>
         </div>
      
     </div>
 
     <!-- Подсекция -->
-    <div class="bg-white py-5 border-b border-gray-100">
+    <div class="bg-white py-5">
       <div class="w-full px-4 lg:px-8">
         <h3 class="text-2xl font-semibold font-mont text-primary">Севиче</h3>
       </div>
     </div>
 
-    <p class="text-gray-500 text-sm font-mont leading-relaxed mb-1 max-w-2xl px-4 lg:px-8">
+    <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
       Комментарий к секции
     </p>
     <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
@@ -422,6 +446,8 @@
                </div>
           </div>
 
+          <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+
             <!-- Наполнение секции - сетка из 2х колонок -->
                 <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
 
@@ -434,7 +460,7 @@
                         <span class="text-right">650&nbsp;₽</span>
                     </div>
                     <div class="p-4 border-b border-gray-200 flex justify-between">
-                        <span class="pr-6">Фуа-гра караши су&nbsp;мисо / юзу&nbsp;чатни</span>
+                        <span class="pr-6">Фуа&#8209;гра караши су&nbsp;мисо / юзу&nbsp;чатни</span>
                         <span class="text-right">1500&nbsp;₽</span>
                     </div>
                     <div class="p-4 border-b border-gray-200 flex justify-between">
@@ -477,13 +503,13 @@
                 </div>
 
                 <!-- Подсекция -->
-                <div class="bg-white py-5 border-b border-gray-100">
+                <div class="bg-white py-5">
                     <div class="w-full px-4 lg:px-8">
                         <h3 class="text-2xl font-semibold font-mont text-primary">Такос</h3>
                     </div>
                 </div>
 
-                <p class="text-gray-500 text-sm font-mont leading-relaxed mb-1 max-w-2xl px-4 lg:px-8">
+                <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
                     2 шт в порции
                 </p>
                 <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
@@ -535,9 +561,9 @@
                     </div>
                 </div>
 
-                <p class="text-gray-500 font-mont leading-relaxed text-center mb-1 max-w-2xl px-4 lg:px-8 mx-auto">
+                <p class="text-gray-500 font-mont leading-relaxed text-center mt-2 mb-1 max-w-2xl px-4 lg:px-8 mx-auto">
                     Шеф-повар рекомендует добавить в салат:
-                    <br> <b> Нога королевского краба 5500&nbsp;₽ / Креветки 1500&nbsp;₽ / Краб 3000&nbsp;₽ </b>
+                    <br> <b> Нога королевского краба&nbsp;5500&nbsp;₽ / Креветки&nbsp;1500&nbsp;₽ / Краб&nbsp;3000&nbsp;₽ </b>
                 </p>
                 <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
             
@@ -545,28 +571,52 @@
                 <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
 
                     <div class="p-4 border-b border-gray-200 flex justify-between">
-                        <span class="pr-6">Курица антикучо</span>
-                        <span class="text-right">350&nbsp;₽</span>
+                        <span class="pr-6">Зеленый салат с&nbsp;пряно-лимонным соусом</span>
+                        <span class="text-right">900&nbsp;₽</span>
                     </div>
                     <div class="p-4 border-b border-gray-200 flex justify-between">
-                        <span class="pr-6">Лосось с острым мисо</span>
-                        <span class="text-right">400&nbsp;₽</span>
+                        <span class="pr-6">Салат из кольраби с&nbsp;сухим мисо и&nbsp;трюфельным маслом</span>
+                        <span class="text-right">1100&nbsp;₽</span>
                     </div>
                     <div class="p-4 border-b border-gray-200 flex justify-between">
-                        <span class="pr-6">Японская мраморная говядина чили понзу</span>
-                        <span class="text-right">700&nbsp;₽</span>
-                    </div>
-                    <div class="p-4 border-b border-gray-200 flex justify-between">
-                        <span class="pr-6">Креветка и авокадо севиче</span>
-                        <span class="text-right">400&nbsp;₽</span>
-                    </div>
-                    <div class="p-4 border-b border-gray-200 flex justify-between">
-                        <span class="pr-6">Тунец с сухим мисо</span>
-                        <span class="text-right">850&nbsp;₽</span>
-                    </div>
-                    <div class="p-4 border-b border-gray-200 flex justify-between">
-                        <span class="pr-6">Королевский краб васаби айоли</span>
+                        <span class="pr-6">Зеленый салат с соусом Матсухиса</span>
                         <span class="text-right">950&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Салат из шпината с&nbsp;сухим мисо и&nbsp;трюфельным маслом</span>
+                        <span class="text-right">1700&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Сашими салат с&nbsp;соусом Матсухиса</span>
+                        <span class="text-right">2800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Салат с&nbsp;лососем и&nbsp;медово&#8209;горчичным соусом</span>
+                        <span class="text-right">1500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Салат с&nbsp;хрустящими шитаке и&nbsp;гома&#8209;трюфельным соусом</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Салат из&nbsp;водорослей</span>
+                        <span class="text-right">1200&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Чука с&nbsp;ореховым соусом</span>
+                        <span class="text-right">750&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Теплый салат из&nbsp;баклажанов</span>
+                        <span class="text-right">950&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Суномоно из&nbsp;огурцов</span>
+                        <span class="text-right">550&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Огурцы шибазуке</span>
+                        <span class="text-right">550&nbsp;₽</span>
                     </div>
      
                 </div>
@@ -574,6 +624,792 @@
 
         </section>
 
+        <section id="tempura" class="font-base py-8">          
+            <!-- Заголовок секции -->
+             <div class="sticky top-36 bg-white/80 py-6 border-b border-gray-100 sticky-section backdrop-blur-sm">
+                  <div class="w-full px-4 lg:px-8">
+                     <h2 class="text-3xl font-normal font-heading text-primary">Темпура</h2>
+                  </div>
+             </div>
+
+                <!-- Подсекция -->
+                    <div class="bg-white py-5">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl font-semibold font-mont text-primary">Фирменная темпура</h3>
+                    </div>
+                    </div>
+
+                    <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
+                    Комментарий к секции
+                    </p>
+                    <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+                            
+                    <!-- Наполнение секции - сетка из 2х колонок -->
+                    <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Креветки темпура с&nbsp;пряно&#8209;кремовым / понзу&nbsp;соусом</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Нога королевского краба с&nbsp;соусом Флорида понзу</span>
+                        <span class="text-right">6000&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Кальмар с&nbsp;соусом васаби айоли</span>
+                        <span class="text-right">1200&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Какияге из&nbsp;креветки и&nbsp;гребешка</span>
+                        <span class="text-right">1200&nbsp;₽</span>
+                        </div>
+                    
+                    </div>
+
+                <!-- Подсекция -->
+                <div class="bg-white py border-b border-gray-100">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl mt-4 font-semibold font-mont text-primary">Темпура</h3>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
+                    2 шт в порции
+                </p>
+                <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+            
+                <!-- Наполнение секции - сетка из 2х колонок -->
+                <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Спаржа</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Шитаке</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Тофу</span>
+                        <span class="text-right">300&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Сладкий перец</span>
+                        <span class="text-right">300&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Морковь</span>
+                        <span class="text-right">200&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Тыква</span>
+                        <span class="text-right">250&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Лук</span>
+                        <span class="text-right">200&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Сладкий картофель</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Авокадо</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Цуккини</span>
+                        <span class="text-right">300&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Брокколи</span>
+                        <span class="text-right">350&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Баклажан</span>
+                        <span class="text-right">300&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Креветка</span>
+                        <span class="text-right">800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Гребешок</span>
+                        <span class="text-right">1200&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Белая рыба</span>
+                        <span class="text-right">1200&nbsp;₽</span>
+                    </div>
+     
+                </div>
+
+
+        </section>
+
+        <section id="grill" class="font-base py-8">          
+            <!-- Заголовок секции -->
+             <div class="sticky top-36 bg-white/80 py-6 border-b border-gray-100 sticky-section backdrop-blur-sm">
+                  <div class="w-full px-4 lg:px-8">
+                     <h2 class="text-3xl font-normal font-heading text-primary">Блюда на гриле</h2>
+                  </div>
+             </div>
+
+                <!-- Подсекция -->
+                    <div class="bg-white py-5">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl font-semibold font-mont text-primary">Кушияки</h3>
+                    </div>
+                    </div>
+
+                    <p class="text-gray-500 font-mont leading-relaxed mb-1 mt-2 max-w-2xl px-4 lg:px-8">
+                    2 шт в порции
+                    <br> <b>Соус на выбор: антикучо или терияки </b>
+                    </p>
+                    <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+                            
+                    <!-- Наполнение секции - сетка из 2х колонок -->
+                    <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Кальмар</span>
+                        <span class="text-right">1000&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Курица</span>
+                        <span class="text-right">800&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Лосось</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Говядина</span>
+                        <span class="text-right">2200&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Креветки</span>
+                        <span class="text-right">1500&nbsp;₽</span>
+                        </div>
+                    
+                    </div>
+
+                <!-- Подсекция -->
+                <div class="bg-white py border-b border-gray-100">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl mt-4 font-semibold font-mont text-primary">Тобан яки</h3>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
+                    Комментарий к секции
+                </p>
+                <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+            
+                <!-- Наполнение секции - сетка из 2х колонок -->
+                <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Грибы</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Говядина</span>
+                        <span class="text-right">3900&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Тофу</span>
+                        <span class="text-right">1300&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Белая рыба и тофу</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Морепродукты</span>
+                        <span class="text-right">2800&nbsp;₽</span>
+                    </div>
+     
+                </div>
+
+
+        </section>
+
+        <section id="hot-dish" class="font-base py-8">          
+            <!-- Заголовок секции -->
+             <div class="sticky top-36 bg-white/80 py-6 border-b border-gray-100 sticky-section backdrop-blur-sm">
+                <div class="w-full px-4 lg:px-8">
+                     <h2 class="text-3xl font-normal font-heading text-primary">Фирменные горячие блюда</h2>
+               </div>
+          </div>
+          <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+                            
+                    <!-- Наполнение секции - сетка из 2х колонок -->
+                    <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Угольная рыба с&nbsp;соусом юзу-мисо</span>
+                            <span class="text-right">3000&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Креветки с&nbsp;пряно&#8209;чесночным / васаби&#8209;перечным&nbsp;соусом</span>
+                            <span class="text-right">2300&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Паста из&nbsp;кальмаров с&nbsp;саке&#8209;соевым соусом</span>
+                            <span class="text-right">1900&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Муксун с&nbsp;тыквенным пюре</span>
+                            <span class="text-right">1700&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Средиземноморский сибас с&nbsp;юзу&#8209;сливочным соусом и&nbsp;икрой</span>
+                            <span class="text-right">2200&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Гребешки с&nbsp;фуа&#8209;гра и&nbsp;ванильным денмисо соусом</span>
+                            <span class="text-right">3000&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Гребешки с&nbsp;васаби&#8209;перечным / пряно&#8209;чесночным&nbsp;соусом</span>
+                            <span class="text-right">3000&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Морепродукты с&nbsp;овощами и&nbsp;соусом том ям</span>
+                            <span class="text-right">1300&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Чилийский сибас с&nbsp;гранатовым мисо / сухим&nbsp;мисо / даши&nbsp;понзу</span>
+                            <span class="text-right">4500&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Баклажан мисо</span>
+                            <span class="text-right">900&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Гедза с&nbsp;японской мраморной говядиной и&nbsp;фуа&#8209;гра / даши&nbsp;пармезан</span>
+                            <span class="text-right">2500 / 3000&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Гедза с&nbsp;креветкой и&nbsp;соусом из&nbsp;черных бобов</span>
+                            <span class="text-right">1600&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Чилийский сибас с&nbsp;киноа и&nbsp;манго спайси лемон</span>
+                            <span class="text-right">2700&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Лапша овощи / курица / креветки</span>
+                            <span class="text-right">800 / 800 / 1000&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Говяжьи щечки с&nbsp;трюфельным терияки</span>
+                            <span class="text-right">1800&nbsp;₽</span>
+                        </div>
+                        <div class="p-4 border-b border-gray-200 flex justify-between">
+                            <span class="pr-6">Глазированный стриплойн с&nbsp;карамельным антикучо</span>
+                            <span class="text-right">2500&nbsp;₽</span>
+                        </div>
+
+                    </div>
+
+                <!-- Подсекция -->
+                <div class="bg-white py border-b border-gray-100">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl mt-4 font-semibold font-mont text-primary">Тобан яки</h3>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
+                    Комментарий к секции
+                </p>
+                <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+            
+                <!-- Наполнение секции - сетка из 2х колонок -->
+                <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Грибы</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Говядина</span>
+                        <span class="text-right">3900&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Тофу</span>
+                        <span class="text-right">1300&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Белая рыба и тофу</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Морепродукты</span>
+                        <span class="text-right">2800&nbsp;₽</span>
+                    </div>
+
+                </div>
+
+                    <!-- Подсекция -->
+                <div class="bg-white py border-b border-gray-100">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl mt-4 font-semibold font-mont text-primary">Якимоно</h3>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 font-mont leading-relaxed mt-2 mb-1 max-w-2xl px-4 lg:px-8">
+                    Подается с рисом
+                    <br> <b>Соус на выбор: терияки, васаби&#8209;перечный или антикучо</b>
+
+                </p>
+                <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+            
+                <!-- Наполнение секции - сетка из 2х колонок -->
+                <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Курица</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Стриплойн</span>
+                        <span class="text-right">2800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Говядина</span>
+                        <span class="text-right">3500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Лосось</span>
+                        <span class="text-right">2500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Ягненок</span>
+                        <span class="text-right">3000&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Рибай (300 гр)</span>
+                        <span class="text-right">6000&nbsp;₽</span>
+                    </div>
+     
+                </div>
+
+                 <!-- Подсекция -->
+                <div class="bg-white py border-b border-gray-100">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl mt-4 font-semibold font-mont text-primary">Суп и рис</h3>
+                    </div>
+                </div>
+                <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+            
+                <!-- Наполнение секции - сетка из 2х колонок -->
+                <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Мисо</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Грибной</span>
+                        <span class="text-right">800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Бульон с морепродуктами</span>
+                        <span class="text-right">950&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Бульон с пряными морепродуктами</span>
+                        <span class="text-right">1600&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Том ям</span>
+                        <span class="text-right">1100&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Рамен с говядиной</span>
+                        <span class="text-right">1100&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Рис</span>
+                        <span class="text-right">400&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Ризотто из киноа</span>
+                        <span class="text-right">950&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Донбури угорь с унаги соусом</span>
+                        <span class="text-right">2000&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Рис в каменной чаше с говядиной / кальмаром / креветкой / лососем</span>
+                        <span class="text-right">1900&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Рис в каменной чаше с овощами</span>
+                        <span class="text-right">1100&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Поке лосось / тунец</span>
+                        <span class="text-right">1500 / 1700&nbsp;₽</span>
+                    </div>
+     
+                </div>
+
+
+        </section>
+
+        <section id="woodoven" class="font-base py-8">          
+            <!-- Заголовок секции -->
+             <div class="sticky top-36 bg-white/80 py-6 border-b border-gray-100 sticky-section backdrop-blur-sm">
+                  <div class="w-full px-4 lg:px-8">
+                     <h2 class="text-3xl font-normal font-heading text-primary">Блюда из дровяной печи</h2>
+                  </div>
+             </div>
+        
+                    <!-- Наполнение секции - сетка из 2х колонок -->
+                    <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Средиземноморский сибас с&nbsp;соусом халапеньо</span>
+                        <span class="text-right">2200&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Цветная капуста с&nbsp;халапеньо / амарилло&#8209;перечным соусом</span>
+                        <span class="text-right">1000&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Цветная капуста с&nbsp;сухим мисо и&nbsp;сливочным соусом</span>
+                        <span class="text-right">1100&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Утиная грудка с&nbsp;апельсиновым мисо</span>
+                        <span class="text-right">1200&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Цыпленок с&nbsp;трюфельным васаби</span>
+                        <span class="text-right">2500&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Запеченные овощи с&nbsp;тремя соусами</span>
+                        <span class="text-right">1500&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Осьминог с&nbsp;соусом мисо антикучо</span>
+                        <span class="text-right">3000&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Шейка желтохвоста с&nbsp;тремя соусами</span>
+                        <span class="text-right">2500&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Рибай с&nbsp;соусом денмисо антикучо / сливочным&nbsp;тосазу</span>
+                        <span class="text-right">3800&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Шорт риб с&nbsp;сальсой из&nbsp;маринованных овощей</span>
+                        <span class="text-right">2000&nbsp;₽</span>
+                        </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Нога королевского краба с&nbsp;соусом шисо сальса</span>
+                        <span class="text-right">6000&nbsp;₽</span>
+                        </div>
+                    
+                    </div>
+
+        </section>
+
+        <section id="sushi-sashimi" class="font-base py-8">          
+            <!-- Заголовок секции -->
+             <div class="sticky top-36 bg-white/80 py-6 border-b border-gray-100 sticky-section backdrop-blur-sm">
+                  <div class="w-full px-4 lg:px-8">
+                     <h2 class="text-3xl font-normal font-heading text-primary">Суши и сашими</h2>
+                  </div>
+             </div>
+                <!-- Подсекция -->
+                <div class="bg-white py border-b border-gray-100">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl font-semibold font-mont text-primary"></h3>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 font-mont leading-relaxed text-center mt-2 mb-1 max-w-2xl px-4 lg:px-8 mx-auto">
+                    Цена за 1 шт
+                    </p>
+                <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+            
+                <!-- Наполнение секции - сетка из 2х колонок -->
+                <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Тунец бигай</span>
+                        <span class="text-right">550&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Тунец блюфин</span>
+                        <span class="text-right">1100&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Чу&#8209;торо</span>
+                        <span class="text-right">1400&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">О&#8209;торо</span>
+                        <span class="text-right">1600&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Опаленное о&#8209;торо</span>
+                        <span class="text-right">1600&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Желтохвост</span>
+                        <span class="text-right">1100&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Креветка</span>
+                        <span class="text-right">400&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Ама Эби</span>
+                        <span class="text-right">600&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Угорь</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Сибас</span>
+                        <span class="text-right">450&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Лосось</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Копченый лосось</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Красная икра</span>
+                        <span class="text-right">550&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Королевский краб</span>
+                        <span class="text-right">800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Гребешок</span>
+                        <span class="text-right">600&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Кальмар</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Тобико</span>
+                        <span class="text-right">400&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Тамаго</span>
+                        <span class="text-right">400&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Осьминог</span>
+                        <span class="text-right">500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Икра морского ежа (Россия)</span>
+                        <span class="text-right">600&nbsp;₽</span>
+                    </div>
+     
+                </div>
+
+
+        </section>
+
+        <section id="rolls" class="font-base py-8">          
+            <!-- Заголовок секции -->
+             <div class="sticky top-36 bg-white/80 py-6 border-b border-gray-100 sticky-section backdrop-blur-sm">
+                  <div class="w-full px-4 lg:px-8">
+                     <h2 class="text-3xl font-normal font-heading text-primary">Роллы</h2>
+                  </div>
+             </div>
+                <!-- Подсекция -->
+                <div class="bg-white py border-b border-gray-100">
+                        <div class="w-full px-4 lg:px-8">
+                            <h3 class="text-2xl font-semibold font-mont text-primary"></h3>
+                        </div>
+                </div>
+
+                    <p class="text-gray-500 leading-relaxed max-w-2xl mb-4 mx-auto text-center">
+                        <i>Cut</i> — нарезанные роллы, <i>Hand</i> — конусообразные роллы
+                    </p>
+
+                    <!-- Таблица -->
+                    <div class="w-full px-4 lg:px-8">
+                        <div class="font-mont">
+                        <!-- Заголовки колонок -->
+                        <div class="grid grid-cols-3 border-b border-gray-300 font-medium text-gray-500 text-center">
+                        <div class="px-4 py-2 text-left"></div>
+                        <div class="px-4 py-2">Cut</div>
+                        <div class="px-4 py-2">Hand</div>
+                        </div>
+
+                        <!-- Строки -->
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Лосось / пряный лосось</div>
+                        <div class="px-4 py-4 text-center">700&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">550&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Лосось и&nbsp;авокадо</div>
+                        <div class="px-4 py-4 text-center">800&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">600&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Кожица лосося</div>
+                        <div class="px-4 py-4 text-center">800&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">550&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Торо и&nbsp;лук</div>
+                        <div class="px-4 py-4 text-center">1500&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">1150&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Желтохвост и&nbsp;сибулет / халапеньо</div>
+                        <div class="px-4 py-4 text-center">1550&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">1100&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Угорь и&nbsp;огурец / авокадо</div>
+                        <div class="px-4 py-4 text-center">1000&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">700&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Калифорния по&#8209;японски (с&nbsp;кунжутом / с&nbsp;тобико)  </div>
+                        <div class="px-4 py-4 text-center">1400 / 1500&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">850 / 1050&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Калифорния </div>
+                        <div class="px-4 py-4 text-center">1600&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">1050&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Креветка темпура</div>
+                        <div class="px-4 py-4 text-center">750&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">450&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Пряный гребешок</div>
+                        <div class="px-4 py-4 text-center">1050&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">650&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Вегетарианский</div>
+                        <div class="px-4 py-4 text-center">750&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">400&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Огурец</div>
+                        <div class="px-4 py-4 text-center">400&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">350&nbsp;₽</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 border-b border-gray-200">
+                        <div class="px-4 py-4 break-words">Авокадо </div>
+                        <div class="px-4 py-4 text-center">500&nbsp;₽</div>
+                        <div class="px-4 py-4 text-center">350&nbsp;₽</div>
+                        </div>
+                        
+                        </div>
+                    </div>
+
+
+                    <!-- Подсекция -->
+                <div class="bg-white py border-b border-gray-100">
+                    <div class="w-full px-4 lg:px-8">
+                        <h3 class="text-2xl mt-4 font-semibold font-mont text-primary">Фирменные роллы</h3>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 font-mont leading-relaxed text-center mt-2 mb-1 max-w-2xl px-4 lg:px-8 mx-auto"></p>
+                <div class="mt-3 h-px bg-gradient-to-r from-gray-300 via-gray-200 to-transparent"></div>
+            
+                <!-- Наполнение секции - сетка из 2х колонок -->
+                <div class="w-full px-4 lg:px-8 font-mont grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Фирменный «Kai»</span>
+                        <span class="text-right">1850&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Дабл лосось</span>
+                        <span class="text-right">1500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Фирменный</span>
+                        <span class="text-right">1800&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Угорь фуа&#8209;гра</span>
+                        <span class="text-right">1950&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Ролл лосось с сухим мисо</span>
+                        <span class="text-right">1950&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Пряно&#8209;кремовый краб</span>
+                        <span class="text-right">2100&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Абури лосось / угорь</span>
+                        <span class="text-right">950 / 1050&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Дракон</span>
+                        <span class="text-right">1300&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Лосось юзу сливочный</span>
+                        <span class="text-right">1200&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Ролл лосось в новом стиле</span>
+                        <span class="text-right">1600&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Ролл с лососем и гребешком</span>
+                        <span class="text-right">1500&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Теплый ролл с крабом</span>
+                        <span class="text-right">1700&nbsp;₽</span>
+                    </div>
+                    <div class="p-4 border-b border-gray-200 flex justify-between">
+                        <span class="pr-6">Теплый ролл с лососем</span>
+                        <span class="text-right">1200&nbsp;₽</span>
+                    </div>
+     
+                </div>
+
+
+        </section>
 
 
     </main>
@@ -636,28 +1472,26 @@
         });
     </script>
 
-    <script id="menu-navigation">
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuButtons = document.querySelectorAll('.menu-category-btn');
-            
-            menuButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    menuButtons.forEach(btn => {
-                        btn.classList.remove('bg-primary', 'text-white');
-                        btn.classList.add('bg-gray-100', 'text-gray-700');
-                    });
-                    
-                    this.classList.remove('bg-gray-100', 'text-gray-700');
-                    this.classList.add('bg-primary', 'text-white');
-                    
-                    const category = this.getAttribute('data-category');
-                    const section = document.getElementById(category);
-                    if (section) {
-                        section.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-        });
+    <script>
+        const menu = document.getElementById('menuScroll');
+
+            menu.addEventListener('wheel', (evt) => {
+                evt.preventDefault(); // отменяем вертикальный скролл
+            menu.scrollLeft += evt.deltaY; // двигаем горизонтально
+          });
+    </script>
+
+    <script>
+        document.querySelectorAll('.menu-category-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.getAttribute('data-category');
+    const section = document.getElementById(id);
+    const offset = 120; // px — подстрой под высоту хедера
+    const top = section.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
     </script>
 
     <script id="active-section-tracking">
