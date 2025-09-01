@@ -269,48 +269,56 @@
       </div>
     </footer>
 
-    <script id="mobile-menu-toggle">
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuIcon = mobileMenuButton.querySelector('i');
-
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                
-                if (mobileMenu.classList.contains('hidden')) {
-                    menuIcon.className = 'ri-menu-line text-xl';
-                } else {
-                    menuIcon.className = 'ri-close-line text-xl';
-                }
-            });
-        });
-    </script>
-
-    <script>
-        const menu = document.getElementById('menuScroll');
-
-            menu.addEventListener('wheel', (evt) => {
-                evt.preventDefault(); // отменяем вертикальный скролл
-            menu.scrollLeft += evt.deltaY; // двигаем горизонтально
+    <script id="scroll-animations">
+      document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
           });
+        }, observerOptions);
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          observer.observe(el);
+        });
+      });
     </script>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const menuIcon = mobileMenuButton.querySelector('i');
-
-      mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-        if (mobileMenu.classList.contains('hidden')) {
-          menuIcon.className = 'ri-menu-line text-xl';
-        } else {
-          menuIcon.className = 'ri-close-line text-xl';
-        }
+    <!-- плавный скролл -->
+    <script id="smooth-scroll">
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
       });
-    });
-  </script>
+    </script>
+
+    <!-- мобильное меню -->
+    <script id="mobile-menu-toggle">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = mobileMenuButton.querySelector("i");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          if (mobileMenu.classList.contains("hidden")) {
+            menuIcon.className = "ri-menu-line text-xl";
+          } else {
+            menuIcon.className = "ri-close-line text-xl";
+          }
+        });
+      });
+    </script>
 </body>
 </html>
