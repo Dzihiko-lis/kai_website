@@ -294,38 +294,35 @@
     <!-- Cuisine Section -->
 <section id="cuisine" class="py-20 bg-primary/95 text-white">
   <div class="max-w-7xl mx-auto px-6">
-    <!-- сетка: мобильно 2 колонки (только картинки), десктоп 3 колонки (2 картинки + текст) -->
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 items-center">
       
       <!-- Картинка 1 -->
-      <div class="relative group fade-in cursor-pointer">
+      <div class="relative group fade-in cursor-pointer rounded-lg overflow-hidden image-wrapper">
         <img
           src="image_cuisine.png"
           alt="Сет сашими"
-          class="w-full h-64 md:h-80 object-cover rounded-lg"
+          class="w-full h-64 md:h-80 object-cover"
         />
         <!-- Overlay -->
         <div
           class="absolute inset-0 bg-black/60 flex items-center justify-center 
-                 opacity-0 group-hover:opacity-100 transition duration-300 
-                 rounded-lg"
+                 opacity-0 group-hover:opacity-100 transition duration-300"
         >
           <span class="text-white text-xl font-semibold">Сет сашими</span>
         </div>
       </div>
 
       <!-- Картинка 2 -->
-      <div class="relative group fade-in cursor-pointer">
+      <div class="relative group fade-in cursor-pointer rounded-lg overflow-hidden image-wrapper">
         <img
           src="image_cuisine.png"
           alt="Суши сет"
-          class="w-full h-64 md:h-80 object-cover rounded-lg"
+          class="w-full h-64 md:h-80 object-cover"
         />
         <!-- Overlay -->
         <div
           class="absolute inset-0 bg-black/60 flex items-center justify-center 
-                 opacity-0 group-hover:opacity-100 transition duration-300 
-                 rounded-lg"
+                 opacity-0 group-hover:opacity-100 transition duration-300"
         >
           <span class="text-white text-xl font-semibold">Суши сет</span>
         </div>
@@ -536,5 +533,32 @@
         });
       });
     </script>
+
+    <script>
+  // Включаем "тап для показа" на мобильных
+  document.querySelectorAll('.image-wrapper').forEach(wrapper => {
+    wrapper.addEventListener('click', function (e) {
+      // Определяем мобильный режим
+      if (window.innerWidth < 1024) { 
+        const overlay = this.querySelector('div');
+        // Переключаем класс для overlay
+        overlay.classList.toggle('opacity-100');
+        overlay.classList.toggle('opacity-0');
+        e.stopPropagation();
+      }
+    });
+  });
+
+  // Клик вне картинки закрывает все оверлеи (на мобилке)
+  document.addEventListener('click', function () {
+    if (window.innerWidth < 1024) {
+      document.querySelectorAll('.image-wrapper div').forEach(overlay => {
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('opacity-0');
+      });
+    }
+  });
+</script>
+
   </body>
 </html>
