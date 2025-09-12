@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Галерея ресторана KAI",
+  "description": "Интерьер, блюда и атмосфера ресторана KAI в Москве",
+  "url": "https://yourdomain.com/gallery.html",
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery1.webp",
+      "name": "Фото 1",
+      "caption": "Интерьер лаундж зоны и бара ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery2.webp",
+      "name": "Фото 2",
+      "caption": "Игорь Пак - шеф-повар ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery3.webp",
+      "name": "Фото 3",
+      "caption": "Тунец татаки"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery4.webp",
+      "name": "Фото 4",
+      "caption": "Юрий Лигай - суши-шеф ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery5.webp",
+      "name": "Фото 5",
+      "caption": "Интерьер 1 этажа ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery6.webp",
+      "name": "Фото 6",
+      "caption": "Атмосфера ресторана"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery7.webp",
+      "name": "Фото 7",
+      "caption": "Интерьер 2 этажа ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery8.webp",
+      "name": "Фото 8",
+      "caption": "Блюда ресторана"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery9.webp",
+      "name": "Фото 9",
+      "caption": "Чука с ореховым соусом"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery10.webp",
+      "name": "Фото 10",
+      "caption": "Интерьер VIP-кабинета ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery11.webp",
+      "name": "Фото 11",
+      "caption": "Интерьер лаундж-зоны ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery12.webp",
+      "name": "Фото 12",
+      "caption": "Атмосфера ресторана"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery13.webp",
+      "name": "Фото 13",
+      "caption": "Интерьер суши-бара ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery14.webp",
+      "name": "Фото 14",
+      "caption": "Интерьер суши-бара в ресторане KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery15.webp",
+      "name": "Фото 15",
+      "caption": "Атмосфера ресторана"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery16.webp",
+      "name": "Фото 16",
+      "caption": "Интерьер зала 2 этажа ресторана KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery17.webp",
+      "name": "Фото 17",
+      "caption": "Атмосфера ресторана"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery18.webp",
+      "name": "Фото 18",
+      "caption": "Интерьер VIP-кабинета в ресторане KAI"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery19.webp",
+      "name": "Фото 19",
+      "caption": "Интерьер ресторана"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/images/gallery20.webp",
+      "name": "Фото 20",
+      "caption": "Блюда ресторана"
+    }
+  ]
+}
