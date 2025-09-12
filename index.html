@@ -296,22 +296,39 @@
   <div class="max-w-7xl mx-auto px-6">
     <!-- сетка: мобильно 2 колонки (только картинки), десктоп 3 колонки (2 картинки + текст) -->
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+      
       <!-- Картинка 1 -->
-      <div class="fade-in">
+      <div class="relative group fade-in cursor-pointer">
         <img
           src="image_cuisine.png"
           alt="Сет сашими"
-          class="w-full h-64 md:h-80 object-cover rounded-lg hover-scale"
+          class="w-full h-64 md:h-80 object-cover rounded-lg"
         />
+        <!-- Overlay -->
+        <div
+          class="absolute inset-0 bg-black/60 flex items-center justify-center 
+                 opacity-0 group-hover:opacity-100 transition duration-300 
+                 rounded-lg"
+        >
+          <span class="text-white text-xl font-semibold">Сет сашими</span>
+        </div>
       </div>
 
       <!-- Картинка 2 -->
-      <div class="fade-in">
+      <div class="relative group fade-in cursor-pointer">
         <img
           src="image_cuisine.png"
           alt="Суши сет"
-          class="w-full h-64 md:h-80 object-cover rounded-lg hover-scale"
+          class="w-full h-64 md:h-80 object-cover rounded-lg"
         />
+        <!-- Overlay -->
+        <div
+          class="absolute inset-0 bg-black/60 flex items-center justify-center 
+                 opacity-0 group-hover:opacity-100 transition duration-300 
+                 rounded-lg"
+        >
+          <span class="text-white text-xl font-semibold">Суши сет</span>
+        </div>
       </div>
 
       <!-- Текстовый блок -->
@@ -332,6 +349,7 @@
     </div>
   </div>
 </section>
+
 
 
 
