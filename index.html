@@ -292,33 +292,47 @@
     </section>
 
     <!-- Cuisine Section -->
-    <section id="cuisine" class="py-20 bg-primary/95 text-white">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="fade-in">
-            <img
-              src="image_cuisine.png"
-              alt="Сет сашими"
-              class="w-full h-96 object-cover !rounded-lg hover-scale"
-            />
-          </div>
-          <div class="fade-in">
-            <h2 class="text-4xl md:text-5xl font-prosto mb-8">
-              Кухня и&nbsp;шеф
-            </h2>
-            <p class="text-lg leading-relaxed text-gray-300 mb-6 font-raleway font-normal">
-              Меню — это сочетание сезонных ингредиентов, японских техник и
-              авторского подхода.
-            </p>
-            <p class="text-lg leading-relaxed text-gray-300 font-raleway font-normal">
-              Каждое блюдо — это история, рассказанная через вкус, текстуру и&nbsp;аромат. 
-              Наш шеф&#8209;повар создаёт не просто еду, а&nbsp;эмоциональные
-              переживания.
-            </p>
-          </div>
-        </div>
+<section id="cuisine" class="py-20 bg-primary/95 text-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- сетка: мобильно 2 колонки (только картинки), десктоп 3 колонки (2 картинки + текст) -->
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+      <!-- Картинка 1 -->
+      <div class="fade-in">
+        <img
+          src="image_cuisine.png"
+          alt="Сет сашими"
+          class="w-full h-64 md:h-80 object-cover rounded-lg hover-scale"
+        />
       </div>
-    </section>
+
+      <!-- Картинка 2 -->
+      <div class="fade-in">
+        <img
+          src="image_cuisine.png"
+          alt="Суши сет"
+          class="w-full h-64 md:h-80 object-cover rounded-lg hover-scale"
+        />
+      </div>
+
+      <!-- Текстовый блок -->
+      <div class="fade-in col-span-2 lg:col-span-1">
+        <h2 class="text-4xl md:text-5xl font-prosto mb-8">
+          Кухня и&nbsp;шеф
+        </h2>
+        <p class="text-lg leading-relaxed text-gray-300 mb-6 font-raleway font-normal">
+          Меню — это сочетание сезонных ингредиентов, японских техник и
+          авторского подхода.
+        </p>
+        <p class="text-lg leading-relaxed text-gray-300 font-raleway font-normal">
+          Каждое блюдо — это история, рассказанная через вкус, текстуру и&nbsp;аромат. 
+          Наш шеф&#8209;повар создаёт не просто еду, а&nbsp;эмоциональные
+          переживания.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <!-- Contact Section -->
