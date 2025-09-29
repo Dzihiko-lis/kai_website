@@ -252,16 +252,16 @@
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://api.whatsapp.com/send?phone=79250104362">
           <button
-            class="bg-secondary text-black px-8 py-4 rounded-button font-raleway font-medium text-lg hover:bg-secondary/90 transition-all duration-300 hover-scale whitespace-nowrap"
+            class="bg-secondary text-black px-8 py-4 rounded-button font-raleway font-semibold text-lg hover:bg-secondary/90 transition-all duration-300 hover-scale whitespace-nowrap"
           >
             Забронировать стол
           </button></a>
-          <a href="https://api.whatsapp.com/send?phone=79250104362">
+          <!--  <a href="https://api.whatsapp.com/send?phone=79250104362">
           <button
             class="border-2 border-white text-white px-8 py-4 rounded-button font-raleway font-medium text-lg hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap"
           >
             Доставка
-          </button></a>
+          </button></a> -->
         </div>
       </div>
     </section>
@@ -407,12 +407,22 @@
           </div>
         </div>
 
-        <!-- Кнопка -->
-         <a href="https://api.whatsapp.com/send?phone=79250104362">
-        <button class="mt-6 bg-beige text-black px-8 py-4 !rounded-button font-raleway font-medium text-lg hover:bg-secondary/90 transition-all duration-300 hover-scale whitespace-nowrap">
-          Забронировать стол
-        </button></a>
-      </div>
+        <!-- Кнопки -->
+        <div class="flex flex-col space-y-4 mt-6">
+          <a href="https://api.whatsapp.com/send?phone=79250104362" class="w-fit">
+            <button class="bg-beige text-black px-8 py-4 !rounded-button font-raleway font-medium text-lg hover:bg-secondary/90 transition-all duration-300 hover-scale whitespace-nowrap">
+              Забронировать стол
+            </button>
+          </a>
+
+          <a href="https://api.whatsapp.com/send?phone=79250104362" class="w-fit">
+            <button class="border-2 border-black text-black px-8 py-4 !rounded-button font-raleway font-medium text-lg hover:bg-primary/10 transition-all duration-300 hover-scale whitespace-nowrap">
+              Заказать доставку
+            </button>
+          </a>
+        </div>
+        </div>
+
 
       <!-- Правая колонка: карта -->
       <div class="fade-in rounded-2xl overflow-hidden shadow-lg">
@@ -420,9 +430,10 @@
                 width="100%" height="400" frameborder="0" class="rounded-2xl">
         </iframe>
       </div>
-    </div>
+    
   </div>
 </section>
+
 
 
 
